@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MobileTogetherDesign versionClient="65" versionServer="65" deploymentPath_so="/Solar Power Tool" deploymentDescription_so="Track solar generation, electricity use, and kWh balance for net meter billing." deploymentGlobalResourceConfig_so="Default">
+	<DesignRoot id="1">
+		<style theme="default" workflowIcon="solar-tool-icon.png"/>
+		<children>
+			<DesignPage id="2">
+				<style backgroundColor_x="if ($MT_iOS = true() ) then $MT_EditFieldBackgroundColor else ( )" name="Intro" showTitleBar="0"/>
+				<children>
+					<DesignLabel id="121">
+						<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" multiLine="1" name="Label1" text="Solar Power Tracker" textColor="black" textSize="medium" valign="middle" weight="1"/>
+					</DesignLabel>
+					<DesignTable id="123">
+						<style addDelPossible="0" margin_x="$PERSISTENT/Root/margFactor" name="Table2" tablePadding="0"/>
+						<children>
+							<DesignTableCol id="124"/>
+							<DesignTableScrollableArea id="125">
+								<style maxTableY="RestScreenYMax"/>
+								<children>
+									<DesignTableRow id="126">
+										<children>
+											<DesignLabel id="127">
+												<style margin="6dp" multiLine="1" name="Label2" text_x="&apos;Many residential solar generation systems connect to the utility power grid with net-meter billing. Solar panels installed on the roof provide power to the home only while the sun is shining. Electricity comes from the grid at night or whenever demand exceeds production.
+
+When the solar panels produce more electricity than the home consumes, the excess is fed back to the grid and supplements utility generation capacity. 
+
+A system for any home is configured based on a historical year of electricity consumption. During months with more sunshine and less electricity demand, the account builds a surplus that is drawn down when demand exceeds generation.
+
+These homes have two electric meters. One meter records electricity produced, and the other records electricity consumed. 
+
+This app lets users record solar panel production and electricity consumption data and produces charts to illustrate the data and track the surplus over time.&apos;" textColor="gray" textSize="medium"/>
+											</DesignLabel>
+										</children>
+									</DesignTableRow>
+									<DesignTableRow id="129">
+										<children>
+											<DesignLabel id="130">
+												<style margin="6dp" multiLine="1" name="Label7" text="A citizen developer familiar with MobileTogether created this app in about 30 hours." textColor="gray" textSize="medium"/>
+											</DesignLabel>
+										</children>
+									</DesignTableRow>
+								</children>
+							</DesignTableScrollableArea>
+						</children>
+					</DesignTable>
+					<DesignTable id="135">
+						<style margin_x="$PERSISTENT/Root/margFactor" name="Table1" tablePadding="0"/>
+						<children>
+							<DesignTableCol id="136"/>
+							<DesignTableRow id="137">
+								<children>
+									<DesignCheckBox id="138" pageXML="61">
+										<style autoCorrectValue="0" cbRight="0" checkedUnchecked="true 1 false" margin="6dp" multiLine="1" name="Skip Box" padding="6dp" text="Skip this intro in the future" textColor="gray"/>
+									</DesignCheckBox>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="140">
+								<children>
+									<DesignButton id="141">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" name="Launch Button" padding="6dp" text="Next Page" width="60%"/>
+										<controlActions id="142">
+											<children>
+												<DesignActionGotoPage id="145" showLoadToppageMsg="0" processRef="918"/>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+				</children>
+				<onPageLoadActions id="16">
+					<children>
+						<DesignActionCondition id="2227" condition="$PERSISTENT/Root/skipIntro = true()">
+							<children>
+								<DesignActionConditionTrue id="2228">
+									<children>
+										<DesignActionGotoPage id="2229" showLoadToppageMsg="0" processRef="918"/>
+									</children>
+								</DesignActionConditionTrue>
+							</children>
+						</DesignActionCondition>
+					</children>
+				</onPageLoadActions>
+			</DesignPage>
+			<DesignPage id="155">
+				<style backgroundColor_x="if ($MT_iOS = true() ) then $MT_EditFieldBackgroundColor else ( )" name="Daily report" showTitleBar="0"/>
+				<children>
+					<DesignTable id="1364">
+						<style backgroundColor_x="$PERSISTENT/Root/customGray" name="Table1" padding="2dp" tablePadding="0"/>
+						<children>
+							<DesignTableCol id="2161">
+								<style colWidth="10%"/>
+							</DesignTableCol>
+							<DesignTableCol id="1365"/>
+							<DesignTableCol id="1366">
+								<style colWidth="10%"/>
+							</DesignTableCol>
+							<DesignTableRow id="1367">
+								<children>
+									<DesignTableCellEmpty id="2162"/>
+									<DesignLabel id="1360">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" multiLine="1" name="Label1" text="Daily Solar Power" textColor="black" textSize="medium" valign="middle" weight="1"/>
+									</DesignLabel>
+									<DesignButton id="2140">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" buttonImage="settings" name="Button2" textColor="white" underline="0" weight="1"/>
+										<controlActions id="2141">
+											<children>
+												<DesignActionLet id="2137" source="subpage" pageRef="1254" showLoadSubpageMsg="0" showCloseSubpageMsg="0" variable="temp">
+													<children>
+														<DesignActionGroupRef id="2138" groupRef="623"/>
+													</children>
+												</DesignActionLet>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignChart id="2383" chartSettings="593">
+						<style align="center" name="Daily Production Chart" width="100%"/>
+					</DesignChart>
+					<DesignTable id="370">
+						<style addDelPossible="0" name="Daily Data Table"/>
+						<children>
+							<DesignTableCol id="371"/>
+							<DesignTableCol id="372"/>
+							<DesignTableCol id="373"/>
+							<DesignTableCol id="374"/>
+							<DesignTableCol id="1347"/>
+							<DesignTableCol id="1348"/>
+							<DesignTableRow id="571">
+								<children>
+									<DesignButton id="668">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" colSpan="2" name="Data View" text_x="if ( $PERSISTENT/Root/dataView = 0 )
+then &apos;Show&apos;
+else &apos;Hide&apos;" textSize="16sp" valign="middle" weight="1" width="70%"/>
+										<controlActions id="669">
+											<children>
+												<DesignActionCondition id="672" condition="$PERSISTENT/Root/dataView = 0">
+													<children>
+														<DesignActionConditionTrue id="673">
+															<children>
+																<DesignActionUpdateNode id="674" updAt="$PERSISTENT/Root/dataView" resOf="1"/>
+																<DesignActionScrollTo id="1359" scrolltoTarget="bottom" subject="table" desiredLocation="minimal" scrollSubject="370"/>
+															</children>
+														</DesignActionConditionTrue>
+														<DesignActionConditionFalse id="675">
+															<children>
+																<DesignActionUpdateNode id="676" updAt="$PERSISTENT/Root/dataView" resOf="0"/>
+															</children>
+														</DesignActionConditionFalse>
+													</children>
+												</DesignActionCondition>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignLabel id="1918">
+										<style align="center" colSpan="4" name="Label6" text="  Latest Daily Stats" textSize="16sp" valign="middle" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="375">
+								<children>
+									<DesignLabel id="376">
+										<style name="Label2" text="Date" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="378">
+										<style align="center" multiLine="1" name="Label3" text_x="&apos;Solar
+Meter&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="380">
+										<style align="center" colSpan="1" multiLine="1" name="Label4" text_x="&apos;Usage
+Meter&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="382">
+										<style align="center" multiLine="1" name="Label5" text_x="&apos;Daily
+Gen.&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1342">
+										<style align="center" multiLine="1" name="Label7" text_x="&apos;Daily
+Use&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1345">
+										<style align="center" multiLine="1" name="Label9" text_x="&apos;Daily
+Surplus&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableScrollableArea id="1314">
+								<style maxTableY="30%" scrollTableY="ScrollTableRows"/>
+								<children>
+									<DesignTableRowGroup id="1306" pageXML="1274">
+										<style addDelPossible="0"/>
+										<children>
+											<DesignTableRow id="418">
+												<children>
+													<DesignLabel id="414" pageXML="1275">
+														<style dtFormat="[M]-[D]" name="Label23" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+													</DesignLabel>
+													<DesignLabel id="437" pageXML="1276">
+														<style align="center" name="Label27" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+													</DesignLabel>
+													<DesignLabel id="441" pageXML="1277">
+														<style align="center" colSpan="1" name="Label29" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+													</DesignLabel>
+													<DesignLabel id="445" pageXML="1315">
+														<style align="center" name="Label31" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+													</DesignLabel>
+													<DesignLabel id="1339" pageXML="1316">
+														<style align="center" name="Label33" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+													</DesignLabel>
+													<DesignLabel id="1336" pageXML="1278">
+														<style align="center" name="Label32" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+													</DesignLabel>
+												</children>
+											</DesignTableRow>
+										</children>
+									</DesignTableRowGroup>
+								</children>
+							</DesignTableScrollableArea>
+						</children>
+					</DesignTable>
+					<DesignButton id="507">
+						<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="New reading button" text="Add new reading" textSize="16sp" visible_x="($PERSISTENT/Root/dataView = 1) and
+( $PERSISTENT/Root/dailyRecord/row[xs:integer(count($PERSISTENT/Root/dailyRecord/row))]/date &lt; current-date-no-TZ() )" weight="1" width="60%"/>
+						<controlActions id="508">
+							<children>
+								<DesignActionLet id="1061" source="subpage" pageRef="548" showLoadSubpageMsg="0" showCloseSubpageMsg="0" asModalDialog="1" modalDialogWidthXPath="&apos;95%&apos;" modalLandscapeDialogWidthXPath="&apos;95%&apos;" variable="temp">
+									<children>
+										<DesignActionComment id="1096" comment="Reload Main page charts"/>
+										<DesignActionGroupRef id="1100" groupRef="623"/>
+										<DesignActionUpdateNode id="1099" updAt="$PERSISTENT/Root/chartRedraw" resOf="0"/>
+									</children>
+								</DesignActionLet>
+							</children>
+						</controlActions>
+					</DesignButton>
+					<DesignChart id="650" chartSettings="655">
+						<style align="center" chartHeight="250dp" name="Daily Surplus Chart" width="100%"/>
+					</DesignChart>
+					<DesignButton id="1171">
+						<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Button1" text="Switch to Monthly Report" textSize="16sp" weight="1" width="60%"/>
+						<controlActions id="1172">
+							<children>
+								<DesignActionGotoPage id="1175" showLoadToppageMsg="0" processRef="918"/>
+							</children>
+						</controlActions>
+					</DesignButton>
+				</children>
+				<onPageLoadActions id="156">
+					<children>
+						<DesignActionGroupRef id="1913" groupRef="1911"/>
+						<DesignActionGroupRef id="663" groupRef="623"/>
+						<DesignActionUpdateNode id="1555" updAt="$PERSISTENT/Root/dataView" resOf="0"/>
+					</children>
+				</onPageLoadActions>
+				<xmlRoots>
+					<PageXMLRootRef id="1289" refXMLRoot="1293"/>
+					<PageXMLRootRef id="1726" refXMLRoot="1692"/>
+				</xmlRoots>
+			</DesignPage>
+			<DesignPage id="548" subPage="1">
+				<style name="Add new day meter readings" showTitleBar="0"/>
+				<children>
+					<DesignTable id="1405">
+						<style name="Table2"/>
+						<children>
+							<DesignTableCol id="1406">
+								<style colWidth="40%"/>
+							</DesignTableCol>
+							<DesignTableCol id="1407"/>
+							<DesignTableRow id="1408">
+								<children>
+									<DesignLabel id="1409">
+										<style multiLine="1" name="Label5" text="Date:" textSize="16sp" visible_x="$PERSISTENT/Root/calcStep = 0" weight="1"/>
+									</DesignLabel>
+									<DesignDate id="1411" pageXML="1470">
+										<style align="center" name="Date1" visible_x="$PERSISTENT/Root/calcStep = 0"/>
+									</DesignDate>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="1418">
+								<children>
+									<DesignLabel id="1419">
+										<style multiLine="1" name="Label6" text="Solar Meter:" textSize="16sp" visible_x="$PERSISTENT/Root/calcStep = 0" weight="1"/>
+									</DesignLabel>
+									<DesignEditField id="1421" pageXML="1471">
+										<style align="center" hint="Solar Meter Reading" keyboard="Number" name="Edit Field3" visible_x="$PERSISTENT/Root/calcStep = 0"/>
+									</DesignEditField>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="1423">
+								<children>
+									<DesignLabel id="1424">
+										<style multiLine="1" name="Label7" text_x="if ($PERSISTENT/Root/calcStep = 0 ) then &apos;Usage Meter:&apos;
+else &apos;Usage factor:&apos;" textSize="16sp" visible_x="$PERSISTENT/Root/calcStep = 0" weight="1"/>
+									</DesignLabel>
+									<DesignEditField id="1426" pageXML="1472">
+										<style align="center" hint="Usage Meter Reading" keyboard="Number" name="Edit Field4" visible_x="$PERSISTENT/Root/calcStep = 0"/>
+									</DesignEditField>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="1577">
+						<style addDelPossible="0" name="Main data table" visible_x="$PERSISTENT/Root/calcStep = 1"/>
+						<children>
+							<DesignTableCol id="1578"/>
+							<DesignTableCol id="1579"/>
+							<DesignTableCol id="1580"/>
+							<DesignTableCol id="1581"/>
+							<DesignTableCol id="1582"/>
+							<DesignTableCol id="1583"/>
+							<DesignTableRow id="1598">
+								<children>
+									<DesignLabel id="1599">
+										<style name="Label2" text="Date" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1601">
+										<style align="center" multiLine="1" name="Label3" text_x="&apos;Solar
+Meter&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1603">
+										<style align="center" colSpan="1" multiLine="1" name="Label4" text_x="&apos;Usage
+Meter&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1605">
+										<style align="center" multiLine="1" name="Label13" text_x="&apos;Daily
+Gen.&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1607">
+										<style align="center" multiLine="1" name="Label16" text_x="&apos;Daily
+Use&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1609">
+										<style align="center" multiLine="1" name="Label17" text_x="&apos;Daily
+Surplus&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="1613">
+								<children>
+									<DesignLabel id="1614" pageXML="1470">
+										<style dtFormat="[M]-[D]" name="Label23" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1616" pageXML="1471">
+										<style align="center" name="Label27" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1618" pageXML="1472">
+										<style align="center" colSpan="1" name="Label29" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1620" pageXML="1473">
+										<style align="center" name="Label31" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1622" pageXML="1474">
+										<style align="center" name="Label33" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1624" pageXML="1475">
+										<style align="center" name="Label32" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="1671">
+						<style name="Table1"/>
+						<children>
+							<DesignTableCol id="1672"/>
+							<DesignTableCol id="1673"/>
+							<DesignTableRow id="1674">
+								<children>
+									<DesignButton id="1651">
+										<style name="Button5" text="Cancel" textSize="16sp"/>
+										<controlActions id="1652">
+											<children>
+												<DesignActionReturnFromSubpage id="1655"/>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignButton id="1658">
+										<style align="center" multiLine="1" name="Button6" text_x="if ($PERSISTENT/Root/calcStep = 0 ) then &apos;Calculate production&apos;
+else
+&apos;Add daily reading&apos;" textSize="16sp"/>
+										<controlActions id="1659">
+											<children>
+												<DesignActionCondition id="1662" condition="$PERSISTENT/Root/calcStep = 0">
+													<children>
+														<DesignActionConditionTrue id="1663">
+															<children>
+																<DesignActionHideKeyboard id="1664"/>
+																<DesignActionGroupRef id="1665" groupRef="1544"/>
+															</children>
+														</DesignActionConditionTrue>
+														<DesignActionConditionFalse id="1666">
+															<children>
+																<DesignActionAppendNode id="1667" appAt="$PERSISTENT/Root/dailyRecord" resOf="$PERSISTENT/Root/newDailyRecord/row"/>
+																<DesignActionDeleteNode id="1668" delAt="$PERSISTENT/Root/dailyRecord/row[1]"/>
+																<DesignActionGroupRef id="2349" groupRef="2338"/>
+																<DesignActionGroupRef id="1891" groupRef="1117"/>
+																<DesignActionReturnFromSubpage id="1669"/>
+															</children>
+														</DesignActionConditionFalse>
+													</children>
+												</DesignActionCondition>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+				</children>
+				<onPageLoadActions id="212">
+					<children>
+						<DesignActionUpdateNode id="1543" updAt="$PERSISTENT/Root/calcStep" resOf="0"/>
+						<DesignActionUpdateNode id="1548" updAt="$PERSISTENT/Root/newDailyRecord/row/solarMeter,
+$PERSISTENT/Root/newDailyRecord/row/usageMeter,
+$PERSISTENT/Root/newDailyRecord/row/produced,
+$PERSISTENT/Root/newDailyRecord/row/used,
+$PERSISTENT/Root/newDailyRecord/row/surplus" resOf="&apos;&apos;"/>
+						<DesignActionSwitchExecutionTarget id="1552" toServer="0">
+							<children>
+								<DesignActionUpdateNode id="1551" updAt="$PERSISTENT/Root/newDailyRecord/row/date" resOf="current-date-no-TZ()"/>
+							</children>
+						</DesignActionSwitchExecutionTarget>
+					</children>
+				</onPageLoadActions>
+				<xmlRoots>
+					<PageXMLRootRef id="1916" refXMLRoot="1293"/>
+				</xmlRoots>
+			</DesignPage>
+			<DesignPage id="689">
+				<style backgroundColor_x="if ($MT_iOS = true() ) then $MT_EditFieldBackgroundColor else ( )" name="Monthly report" showTitleBar="0"/>
+				<children>
+					<DesignTable id="1937">
+						<style backgroundColor_x="$PERSISTENT/Root/customGray" name="Table3" padding="2dp" tablePadding="0"/>
+						<children>
+							<DesignTableCol id="2163">
+								<style colWidth="10%"/>
+							</DesignTableCol>
+							<DesignTableCol id="1938"/>
+							<DesignTableCol id="1939">
+								<style colWidth="10%"/>
+							</DesignTableCol>
+							<DesignTableRow id="1940">
+								<children>
+									<DesignTableCellEmpty id="2159"/>
+									<DesignLabel id="1941">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" multiLine="1" name="Label17" text="Monthly Solar Production" textColor="black" textSize="medium" valign="middle" weight="1"/>
+									</DesignLabel>
+									<DesignButton id="2132">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" buttonImage="settings" name="Button3" textColor="white" underline="0" weight="1"/>
+										<controlActions id="2133">
+											<children>
+												<DesignActionLet id="2129" source="subpage" pageRef="1254" showLoadSubpageMsg="0" showCloseSubpageMsg="0" variable="temp">
+													<children>
+														<DesignActionGroupRef id="2130" groupRef="1038"/>
+													</children>
+												</DesignActionLet>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="2290">
+						<style name="Table1"/>
+						<children>
+							<DesignTableCol id="2291">
+								<style colWidth="50%"/>
+							</DesignTableCol>
+							<DesignTableCol id="2377"/>
+							<DesignTableRow id="2306">
+								<children>
+									<DesignChart id="2302" chartSettings="1033">
+										<style align="center" chartHeight="250dp" colSpan="2" name="Monthly Surplus Chart" width="90%"/>
+									</DesignChart>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="2378">
+								<children>
+									<DesignLabel id="2371">
+										<style align="right" cellPaddingLeft="10dp" cellPaddingRight="10dp" multiLine="1" name="Label21" text="Current surplus:" textSize="16sp" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="2362">
+										<style align="left" multiLine="1" name="Label19" text_x="if ( $PERSISTENT/Root/billingHistory/row[13]/surplusBalance &gt; 0 ) then 
+concat(&apos;+&apos;,
+$PERSISTENT/Root/billingHistory/row[13]/surplusBalance, &apos; kWh&apos;)
+else
+concat($PERSISTENT/Root/billingHistory/row[13]/surplusBalance, &apos; kWh&apos;)
+
+" textSize="16sp" valign="middle" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="2380">
+								<children>
+									<DesignLabel id="2375">
+										<style align="right" cellPaddingLeft="10dp" cellPaddingRight="10dp" multiLine="1" name="Label22" text="Change from last bill:" textSize="16sp" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="2367">
+										<style align="left" multiLine="1" name="Label20" text_x="if ($PERSISTENT/Root/billingHistory/row[13]/surplusBalance - 
+$PERSISTENT/Root/billingHistory/row[12]/surplusBalance &gt; 0 ) 
+then
+concat(&apos;+&apos;,($PERSISTENT/Root/billingHistory/row[13]/surplusBalance - 
+$PERSISTENT/Root/billingHistory/row[12]/surplusBalance )
+, &apos; kWh&apos;) 
+else 
+concat(($PERSISTENT/Root/billingHistory/row[13]/surplusBalance - 
+$PERSISTENT/Root/billingHistory/row[12]/surplusBalance )
+, &apos; kWh&apos;)" textSize="16sp" valign="middle" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="722">
+						<style name="Monthly Data Table"/>
+						<children>
+							<DesignTableCol id="723"/>
+							<DesignTableCol id="724"/>
+							<DesignTableCol id="725"/>
+							<DesignTableCol id="726"/>
+							<DesignTableCol id="727"/>
+							<DesignTableCol id="728"/>
+							<DesignTableCol id="729"/>
+							<DesignTableRow id="1158">
+								<children>
+									<DesignButton id="1144">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" colSpan="2" name="Data View" text_x="if ( $PERSISTENT/Root/dataView = 0 )
+then &apos;Show&apos;
+else &apos;Hide&apos;" textSize="16sp" valign="middle" weight="1" width="80%"/>
+										<controlActions id="1145">
+											<children>
+												<DesignActionCondition id="1148" condition="$PERSISTENT/Root/dataView = 0">
+													<children>
+														<DesignActionConditionTrue id="1149">
+															<children>
+																<DesignActionUpdateNode id="1150" updAt="$PERSISTENT/Root/dataView" resOf="1"/>
+															</children>
+														</DesignActionConditionTrue>
+														<DesignActionConditionFalse id="1151">
+															<children>
+																<DesignActionUpdateNode id="1152" updAt="$PERSISTENT/Root/dataView" resOf="0"/>
+															</children>
+														</DesignActionConditionFalse>
+													</children>
+												</DesignActionCondition>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignLabel id="1156">
+										<style align="center" colSpan="5" multiLine="1" name="Label16" text="Monthly Production Data" textSize="16sp" valign="middle" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="730">
+								<children>
+									<DesignLabel id="701">
+										<style multiLine="1" name="Label2" text="Date" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="705">
+										<style align="center" multiLine="1" name="Label3" text="Solar Meter" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="708">
+										<style align="center" multiLine="1" name="Label4" text="Usage Meter" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="711">
+										<style align="center" multiLine="1" name="Label5" text_x="&apos;kWh
+Gen&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="714">
+										<style align="center" multiLine="1" name="Label6" text="kWh Used" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="717">
+										<style align="center" multiLine="1" name="Label7" text="Month Surplus" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="720">
+										<style align="center" multiLine="1" name="Label8" text="Current Surplus" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableRowGroup id="744" pageXML="1683">
+								<style addDelPossible="0"/>
+								<children>
+									<DesignTableRow id="745">
+										<children>
+											<DesignLabel id="767">
+												<style align="left" name="Label9" text_x="substring-after(date, &apos;-&apos;)" textSize="16sp" underline="0" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+											<DesignLabel id="768" pageXML="1685">
+												<style align="center" format="0" name="Label10" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+											<DesignLabel id="769" pageXML="1686">
+												<style align="center" format="0" name="Label11" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+											<DesignLabel id="770" pageXML="1687">
+												<style align="center" format="0" name="Label12" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+											<DesignLabel id="771" pageXML="1688">
+												<style align="center" format="0" name="Label13" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+											<DesignLabel id="772" pageXML="1689">
+												<style align="center" format="0" name="Label14" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+											<DesignLabel id="773" pageXML="1690">
+												<style align="center" format="0" name="Label15" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+											</DesignLabel>
+										</children>
+									</DesignTableRow>
+								</children>
+							</DesignTableRowGroup>
+						</children>
+					</DesignTable>
+					<DesignButton id="753">
+						<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Button1" text="Add bill readings" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1" weight="1" width="60%"/>
+						<controlActions id="754">
+							<children>
+								<DesignActionMessageBox id="1119" msgBoxKind="okcancel" msgBoxTitle="&apos;Add New Data from Bill&apos;" msgBoxMsg="&apos;This is to add a new set of readings from your utility bill. Continue?&apos;">
+									<children>
+										<DesignActionMessageBoxButton id="1120">
+											<children>
+												<DesignActionComment id="1730"/>
+												<DesignActionComment id="1729" comment="Add a new row to the billing data from a new month&apos;s bill"/>
+												<DesignActionComment id="1728"/>
+												<DesignActionLet id="1893" source="subpage" pageRef="865" showLoadSubpageMsg="0" showCloseSubpageMsg="0" asModalDialog="1" modalDialogWidthXPath="&apos;95%&apos;" variable="temp">
+													<children>
+														<DesignActionGroupRef id="1894" groupRef="1038"/>
+														<DesignActionUpdateNode id="1895" updAt="$PERSISTENT/Root/chartRedraw" resOf="0"/>
+													</children>
+												</DesignActionLet>
+												<DesignActionUpdateNode id="1892" updAt="$PERSISTENT/Root/newBillingRecord/row/solarMeter,
+$PERSISTENT/Root/newBillingRecord/row/usageMeter,
+$PERSISTENT/Root/newBillingRecord/row/kWhGen,
+$PERSISTENT/Root/newBillingRecord/row/kWhUsed,
+$PERSISTENT/Root/newBillingRecord/row/surplusEOM,
+$PERSISTENT/Root/newBillingRecord/row/surplusBalance" resOf="&apos;&apos;"/>
+											</children>
+										</DesignActionMessageBoxButton>
+										<DesignActionMessageBoxButton id="1121"/>
+									</children>
+								</DesignActionMessageBox>
+							</children>
+						</controlActions>
+					</DesignButton>
+					<DesignChart id="1010" chartSettings="1015">
+						<style align="center" name="Monthly Production Chart" width="100%"/>
+					</DesignChart>
+					<DesignButton id="1137">
+						<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Button2" text="Switch to Daily Report" textSize="16sp" weight="1" width="60%"/>
+						<controlActions id="1138">
+							<children>
+								<DesignActionGotoPage id="1141" showLoadToppageMsg="0" processRef="164"/>
+							</children>
+						</controlActions>
+					</DesignButton>
+				</children>
+				<onPageLoadActions id="295">
+					<children>
+						<DesignActionGroupRef id="1914" groupRef="1911"/>
+						<DesignActionGroupRef id="1037" groupRef="1038"/>
+						<DesignActionUpdateNode id="2165" updAt="$PERSISTENT/Root/dataView" resOf="0"/>
+					</children>
+				</onPageLoadActions>
+				<xmlRoots>
+					<PageXMLRootRef id="1691" refXMLRoot="1692"/>
+					<PageXMLRootRef id="1917" refXMLRoot="1293"/>
+				</xmlRoots>
+			</DesignPage>
+			<DesignPage id="865" subPage="1">
+				<style name="Add new billing row data" showTitleBar="0"/>
+				<children>
+					<DesignTable id="866">
+						<style name="Table1" visible_x="$PERSISTENT/Root/calcStep = 0"/>
+						<children>
+							<DesignTableCol id="867">
+								<style colWidth="40%"/>
+							</DesignTableCol>
+							<DesignTableCol id="868"/>
+							<DesignTableRow id="869">
+								<children>
+									<DesignLabel id="824">
+										<style multiLine="1" name="Label1" text="Date:" textSize="16sp" visible_x="$PERSISTENT/Root/calcStep = 0" weight="1"/>
+									</DesignLabel>
+									<DesignDate id="871" pageXML="1700">
+										<style align="center" name="Date1" visible_x="$PERSISTENT/Root/calcStep = 0"/>
+									</DesignDate>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="873">
+								<children>
+									<DesignLabel id="834">
+										<style multiLine="1" name="Label3" text="Solar Meter:" textSize="16sp" weight="1"/>
+									</DesignLabel>
+									<DesignEditField id="876" pageXML="1701">
+										<style align="center" hint="Solar Meter Reading" keyboard="Number" name="Edit Field2"/>
+									</DesignEditField>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="878">
+								<children>
+									<DesignLabel id="836">
+										<style multiLine="1" name="Label4" text_x="if ($PERSISTENT/Root/calcStep = 0 ) then &apos;Usage Meter:&apos;
+else &apos;Usage factor:&apos;" textSize="16sp" weight="1"/>
+									</DesignLabel>
+									<DesignEditField id="881" pageXML="1702">
+										<style align="center" hint="Usage Meter Reading" keyboard="Number" name="Edit Field3"/>
+									</DesignEditField>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="1737">
+						<style name="Table2" visible_x="$PERSISTENT/Root/calcStep = 1"/>
+						<children>
+							<DesignTableCol id="1738"/>
+							<DesignTableCol id="1739"/>
+							<DesignTableCol id="1740"/>
+							<DesignTableCol id="1741"/>
+							<DesignTableCol id="1742"/>
+							<DesignTableCol id="1743"/>
+							<DesignTableCol id="1744"/>
+							<DesignTableRow id="1758">
+								<children>
+									<DesignLabel id="1759">
+										<style multiLine="1" name="Label14" text="Date" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1761">
+										<style align="center" multiLine="1" name="Label15" text="Solar Meter" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1763">
+										<style align="center" multiLine="1" name="Label17" text="Usage Meter" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1765">
+										<style align="center" multiLine="1" name="Label18" text_x="&apos;kWh
+Gen&apos;" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1767">
+										<style align="center" multiLine="1" name="Label19" text="kWh Used" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1769">
+										<style align="center" multiLine="1" name="Label20" text="Month Surplus" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+									<DesignLabel id="1771">
+										<style align="center" multiLine="1" name="Label21" text="Current Surplus" textSize="14sp" valign="bottom" visible_x="$PERSISTENT/Root/dataView = 1" weight="1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="1774">
+								<children>
+									<DesignLabel id="1775" pageXML="1700">
+										<style align="left" dtFormat="[M]-[D]" name="Label22" textSize="16sp" underline="0" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1777" pageXML="1701">
+										<style align="center" format="0" name="Label23" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1779" pageXML="1702">
+										<style align="center" format="0" name="Label24" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1781" pageXML="1703">
+										<style align="center" format="0" name="Label25" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1783" pageXML="1704">
+										<style align="center" format="0" name="Label26" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1785" pageXML="1705">
+										<style align="center" format="0" name="Label27" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+									<DesignLabel id="1787" pageXML="1706">
+										<style align="center" format="0" name="Label28" textSize="16sp" visible_x="$PERSISTENT/Root/dataView = 1"/>
+									</DesignLabel>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="1819">
+						<style name="Table3"/>
+						<children>
+							<DesignTableCol id="1820">
+								<style colWidth="40%"/>
+							</DesignTableCol>
+							<DesignTableCol id="1821"/>
+							<DesignTableRow id="1837">
+								<children>
+									<DesignButton id="1838">
+										<style name="Button2" text="Cancel" textSize="16sp"/>
+										<controlActions id="1839">
+											<children>
+												<DesignActionReturnFromSubpage id="1842"/>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignButton id="1844">
+										<style align="center" multiLine="1" name="Button5" text_x="if ($PERSISTENT/Root/calcStep = 0 ) then &apos;Calculate Monthly Production&apos;
+else
+&apos;Add new record&apos;" textSize="16sp"/>
+										<controlActions id="1845">
+											<children>
+												<DesignActionCondition id="1848" condition="$PERSISTENT/Root/calcStep = 0">
+													<children>
+														<DesignActionConditionTrue id="1849">
+															<children>
+																<DesignActionGroupRef id="1850" groupRef="950"/>
+																<DesignActionUpdateNode id="1851" updAt="$PERSISTENT/Root/calcStep" resOf="1"/>
+															</children>
+														</DesignActionConditionTrue>
+														<DesignActionConditionFalse id="1852">
+															<children>
+																<DesignActionCondition id="1881" condition="count($PERSISTENT/Root/billingHistory/row) &gt; 12">
+																	<children>
+																		<DesignActionConditionTrue id="1882">
+																			<children>
+																				<DesignActionDeleteNode id="1883" delAt="$PERSISTENT/Root/billingHistory/row[13]"/>
+																			</children>
+																		</DesignActionConditionTrue>
+																	</children>
+																</DesignActionCondition>
+																<DesignActionAppendNode id="1884" appAt="$PERSISTENT/Root/billingHistory" resOf="$PERSISTENT/Root/newBillingRecord/row"/>
+																<DesignActionDeleteNode id="1885" delAt="$PERSISTENT/Root/billingHistory/row[1]"/>
+																<DesignActionCondition id="2310" condition="$PERSISTENT/Root/billingHistory/row[12]/surplusBalance &lt; 0">
+																	<children>
+																		<DesignActionConditionTrue id="2311">
+																			<children>
+																				<DesignActionUpdateNode id="2312" updAt="$PERSISTENT/Root/billingHistory/row[12]/surplusBalance" resOf="0"/>
+																			</children>
+																		</DesignActionConditionTrue>
+																	</children>
+																</DesignActionCondition>
+																<DesignActionGroupRef id="1890" groupRef="1117"/>
+																<DesignActionUpdateNode id="1854" updAt="$PERSISTENT/Root/chartRedraw" resOf="1"/>
+																<DesignActionReturnFromSubpage id="1855"/>
+															</children>
+														</DesignActionConditionFalse>
+													</children>
+												</DesignActionCondition>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+				</children>
+				<onPageLoadActions id="353">
+					<children>
+						<DesignActionUpdateNode id="967" updAt="$PERSISTENT/Root/calcStep" resOf="0"/>
+						<DesignActionUpdateNode id="1877" updAt="$PERSISTENT/Root/newBillingRecord/row/date" resOf="current-date-no-TZ()"/>
+						<DesignActionUpdateNode id="1878" updAt="$PERSISTENT/Root/newBillingRecord/row/solarMeter,
+$PERSISTENT/Root/newBillingRecord/row/usageMeter" resOf="&apos;&apos;"/>
+						<DesignActionUpdateNode id="1879" updAt="$PERSISTENT/Root/newBillingRecord/row/kWhGen,
+$PERSISTENT/Root/newBillingRecord/row/kWhUsed,
+$PERSISTENT/Root/newBillingRecord/row/surplusEOM,
+$PERSISTENT/Root/newBillingRecord/row/surplusBalance" resOf="0"/>
+					</children>
+				</onPageLoadActions>
+			</DesignPage>
+			<DesignPage id="1254" subPage="1">
+				<style backgroundColor_x="if ($MT_iOS = true() ) then $MT_EditFieldBackgroundColor else ( )" name="Settings" showTitleBar="0"/>
+				<children>
+					<DesignTable id="1206">
+						<style backgroundColor_x="$PERSISTENT/Root/customGray" marginBottom="6dp" name="Table3"/>
+						<children>
+							<DesignTableCol id="2157">
+								<style colWidth="10%"/>
+							</DesignTableCol>
+							<DesignTableCol id="1207"/>
+							<DesignTableCol id="2164">
+								<style colWidth="10%"/>
+							</DesignTableCol>
+							<DesignTableRow id="1208">
+								<children>
+									<DesignButton id="2151">
+										<style backgroundColor_x="$PERSISTENT/Root/customGray" buttonImage="play_reverse" name="Button7"/>
+										<controlActions id="2152">
+											<children>
+												<DesignActionReturnFromSubpage id="2155"/>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignLabel id="1209">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" multiLine="1" name="Label1" text="Tool Settings" textColor="black" textSize="medium" valign="middle" weight="1"/>
+									</DesignLabel>
+									<DesignTableCellEmpty id="2160"/>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="1220">
+						<style name="Table1" tablePadding="0"/>
+						<children>
+							<DesignTableCol id="1221"/>
+							<DesignTableCol id="1962">
+								<style colWidth="20%"/>
+							</DesignTableCol>
+							<DesignTableRow id="1232">
+								<children>
+									<DesignButton id="1233">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Launch Button1" padding="6dp" text="Load Sample Data" textSize="16sp" weight="1" width="95%"/>
+										<controlActions id="1234">
+											<children>
+												<DesignActionMessageBox id="1559" msgBoxKind="okcancel" msgBoxTitle="&apos;Load Sample Data&apos;" msgBoxMsg="&apos;Are you sure?
+
+This will erase current stored data and reload the sample data set.&apos;">
+													<children>
+														<DesignActionMessageBoxButton id="1560">
+															<children>
+																<DesignActionGroupRef id="1562" groupRef="1292"/>
+															</children>
+														</DesignActionMessageBoxButton>
+														<DesignActionMessageBoxButton id="1561"/>
+													</children>
+												</DesignActionMessageBox>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignButton id="2003">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" name="Button1" padding="6dp" text="?" textSize="16sp" underline="0" valign="middle" weight="1" width="90%"/>
+										<controlActions id="2004">
+											<children>
+												<DesignActionMessageBox id="1993" msgBoxTitle="&apos;Initialize User Data&apos;" msgBoxMsg="&apos;This lets you erase all stored data and reload a sample data set.
+
+You can enter new example readings on the Daily Report page or simulated  utility bills on the Monthly Report page.
+
+On either page, enter the oldest data first.&apos;">
+													<children>
+														<DesignActionMessageBoxButton id="1994"/>
+													</children>
+												</DesignActionMessageBox>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="1257">
+								<children>
+									<DesignButton id="1248">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Launch Button2" padding="6dp" text="Initialize User Data" textSize="16sp" weight="1" width="95%"/>
+										<controlActions id="1249">
+											<children>
+												<DesignActionMessageBox id="1563" msgBoxKind="okcancel" msgBoxTitle="&apos;Erase Production Data&apos;" msgBoxMsg="&apos;Are you sure?
+
+This will erase current stored data to set up the sample data set for a new user.&apos;">
+													<children>
+														<DesignActionMessageBoxButton id="1564">
+															<children>
+																<DesignActionGroupRef id="1567" groupRef="1379"/>
+															</children>
+														</DesignActionMessageBoxButton>
+														<DesignActionMessageBoxButton id="1566"/>
+													</children>
+												</DesignActionMessageBox>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignButton id="2006">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" name="Button2" padding="6dp" text="?" textSize="16sp" underline="0" valign="middle" weight="1" width="90%"/>
+										<controlActions id="2007">
+											<children>
+												<DesignActionMessageBox id="1997" msgBoxTitle="&apos;Initialize User Data&apos;" msgBoxMsg="&apos;This lets you erase all stored data and start entering your own records.
+
+You can enter daily meter readings on the Daily Report page and information from your utility bills on the Monthly Report page.
+
+On either page, enter the oldest data first. As you enter more data, the charts will be more informative.&apos;">
+													<children>
+														<DesignActionMessageBoxButton id="1998"/>
+													</children>
+												</DesignActionMessageBox>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="2050">
+								<children>
+									<DesignButton id="2036">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Launch Button5" padding="6dp" text="Email Current Data" textSize="16sp" weight="1" width="95%"/>
+										<controlActions id="2037">
+											<children>
+												<DesignActionGroupRef id="2040" groupRef="2029"/>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignButton id="2043">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" name="Button5" padding="6dp" text="?" textSize="16sp" underline="0" valign="middle" weight="1" width="90%"/>
+										<controlActions id="2044">
+											<children>
+												<DesignActionMessageBox id="2047" msgBoxTitle="&apos;Email Data&apos;" msgBoxMsg="&apos;Email user data as message attachments&apos;">
+													<children>
+														<DesignActionMessageBoxButton id="2048"/>
+													</children>
+												</DesignActionMessageBox>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+							<DesignTableRow id="1260">
+								<children>
+									<DesignButton id="1251">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" multiLine="1" name="Launch Button3" padding="6dp" text="Update Billing History from File" textSize="16sp" weight="1" width="95%"/>
+										<controlActions id="1252">
+											<children>
+												<DesignActionGroupRef id="2052" groupRef="2053"/>
+											</children>
+										</controlActions>
+									</DesignButton>
+									<DesignButton id="2009">
+										<style align="center" backgroundColor_x="$PERSISTENT/Root/customGray" margin="6dp" name="Button3" padding="6dp" text="?" textSize="16sp" underline="0" valign="middle" weight="1" width="90%"/>
+										<controlActions id="2010">
+											<children>
+												<DesignActionMessageBox id="2001" msgBoxTitle="&apos;Update Billing History&apos;" msgBoxMsg="&apos;Update billing history from an XML file on this device. Use an exported billing file as an example and save 12 or 13 rows.
+
+For months prior to solar operation, enter reading dates and kWh used reported on past bills. All other values should be 0.
+
+Starting with the first full month of solar operation, enter dates and meter readings. All other values should be 0.
+
+Row 13 is optional. If desired, it is a daily reading to record performance since the last bill.&apos;">
+													<children>
+														<DesignActionMessageBoxButton id="2002"/>
+													</children>
+												</DesignActionMessageBox>
+											</children>
+										</controlActions>
+									</DesignButton>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+					<DesignTable id="2316">
+						<style marginTop="6dp" name="Table2" paddingTop="6dp"/>
+						<children>
+							<DesignTableCol id="2317"/>
+							<DesignTableCol id="2318">
+								<style colWidth="20%"/>
+							</DesignTableCol>
+							<DesignTableRow id="2319">
+								<children>
+									<DesignLabel id="2320">
+										<style align="center" multiLine="1" name="Label8" text="Chart daily production days: " textSize="16sp" valign="middle"/>
+									</DesignLabel>
+									<DesignCombo id="2322" pageXML="587" comboEntryVisValues="1">
+										<style align="center" name="Combo Box2" textSize="16sp" valign="middle" weight="1"/>
+										<comboEntry desc="7" value="26"/>
+										<comboEntry desc="14" value="19"/>
+										<comboEntry desc="21" value="12"/>
+										<comboEntry desc="30" value="3"/>
+									</DesignCombo>
+								</children>
+							</DesignTableRow>
+						</children>
+					</DesignTable>
+				</children>
+				<xmlRoots>
+					<PageXMLRootRef id="1291" refXMLRoot="1293"/>
+					<PageXMLRootRef id="1727" refXMLRoot="1692"/>
+					<PageXMLRootRef id="2078" refXMLRoot="2079"/>
+				</xmlRoots>
+			</DesignPage>
+		</children>
+	</DesignRoot>
+	<ActionGroupRoot id="49">
+		<children>
+			<DesignActionGroup id="1911" name="Detect first run">
+				<children>
+					<DesignActionCondition id="1907" condition="$PERSISTENT/Root/firstRun = 1">
+						<children>
+							<DesignActionConditionTrue id="1908">
+								<children>
+									<DesignActionGroupRef id="1910" groupRef="1292"/>
+									<DesignActionUpdateNode id="1909" updAt="$PERSISTENT/Root/firstRun" resOf="0"/>
+								</children>
+							</DesignActionConditionTrue>
+						</children>
+					</DesignActionCondition>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="1292" name="Load sample data">
+				<children>
+					<DesignActionComment id="1720"/>
+					<DesignActionComment id="1284" comment="Remove any current data in the daily record"/>
+					<DesignActionComment id="1721"/>
+					<DesignActionCondition id="1281" condition="count($PERSISTENT/Root/dailyRecord/row) &gt; 1">
+						<children>
+							<DesignActionConditionTrue id="1282">
+								<children>
+									<DesignActionLoop id="1280" varName="i" forEach="2 to count($PERSISTENT/Root/dailyRecord/row)">
+										<children>
+											<DesignActionDeleteNode id="1283" delAt="$PERSISTENT/Root/dailyRecord/row[2]"/>
+										</children>
+									</DesignActionLoop>
+								</children>
+							</DesignActionConditionTrue>
+						</children>
+					</DesignActionCondition>
+					<DesignActionComment id="1722"/>
+					<DesignActionComment id="1285" comment="Load daily sample data into customer daily record"/>
+					<DesignActionComment id="1723"/>
+					<DesignActionLoop id="1286" varName="i" forEach="1 to 32">
+						<children>
+							<DesignActionAppendNode id="1287" appAt="$PERSISTENT/Root/dailyRecord" resOf="$XML-daily-production-sample-data/data/row[$i]"/>
+						</children>
+					</DesignActionLoop>
+					<DesignActionDeleteNode id="1288" delAt="$PERSISTENT/Root/dailyRecord/row[1]"/>
+					<DesignActionComment id="1724"/>
+					<DesignActionComment id="1307" comment="Calculate and update daily surplus, usage, and production data"/>
+					<DesignActionComment id="1725"/>
+					<DesignActionUpdateNode id="1313" updAt="$PERSISTENT/Root/dailyRecord/row[1]/surplus,
+$PERSISTENT/Root/dailyRecord/row[1]/used,
+$PERSISTENT/Root/dailyRecord/row[1]/produced" resOf="0"/>
+					<DesignActionLoop id="1309" varName="i" forEach="2 to 32">
+						<children>
+							<DesignActionUpdateNode id="1324" updAt="$PERSISTENT/Root/dailyRecord/row[$i]/produced" resOf="$PERSISTENT/Root/dailyRecord/row[$i]/solarMeter - $PERSISTENT/Root/dailyRecord/row[xs:integer($i - 1)]/solarMeter"/>
+							<DesignActionUpdateNode id="1317" updAt="$PERSISTENT/Root/dailyRecord/row[$i]/used" resOf="$PERSISTENT/Root/dailyRecord/row[$i]/usageMeter - $PERSISTENT/Root/dailyRecord/row[xs:integer($i - 1)]/usageMeter +
+$PERSISTENT/Root/dailyRecord/row[$i]/produced"/>
+							<DesignActionUpdateNode id="1323" updAt="$PERSISTENT/Root/dailyRecord/row[$i]/surplus" resOf="$PERSISTENT/Root/dailyRecord/row[$i]/produced - $PERSISTENT/Root/dailyRecord/row[$i]/used"/>
+						</children>
+					</DesignActionLoop>
+					<DesignActionComment id="1712"/>
+					<DesignActionComment id="1707" comment="Remove any current data in the monthly history"/>
+					<DesignActionComment id="1713"/>
+					<DesignActionCondition id="1708" condition="count($PERSISTENT/Root/dailyRecord/row) &gt; 1">
+						<children>
+							<DesignActionConditionTrue id="1709">
+								<children>
+									<DesignActionLoop id="1710" varName="i" forEach="2 to count($PERSISTENT/Root/billingHistory/row)">
+										<children>
+											<DesignActionDeleteNode id="1711" delAt="$PERSISTENT/Root/billingHistory/row[2]"/>
+										</children>
+									</DesignActionLoop>
+								</children>
+							</DesignActionConditionTrue>
+						</children>
+					</DesignActionCondition>
+					<DesignActionComment id="1714"/>
+					<DesignActionComment id="1715" comment="Load sample data for the monthly history"/>
+					<DesignActionComment id="1716"/>
+					<DesignActionLoop id="1717" varName="i" forEach="1 to 13">
+						<children>
+							<DesignActionAppendNode id="1718" appAt="$PERSISTENT/Root/billingHistory" resOf="$XML-billing-history-sample/data/row[$i]"/>
+						</children>
+					</DesignActionLoop>
+					<DesignActionDeleteNode id="1719" delAt="$PERSISTENT/Root/billingHistory/row[1]"/>
+					<DesignActionGroupRef id="1897" groupRef="1117"/>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="1379" name="Initialize User data">
+				<children>
+					<DesignActionLoop id="1375" varName="r" forEach="-32 to -1">
+						<children>
+							<DesignActionSwitchExecutionTarget id="1380" toServer="0">
+								<children>
+									<DesignActionUpdateNode id="1377" updAt="$PERSISTENT/Root/dailyRecord/row[xs:integer($r + 33)]/date" resOf="add-days-to-date( current-date-no-TZ() ,  $r) "/>
+								</children>
+							</DesignActionSwitchExecutionTarget>
+						</children>
+					</DesignActionLoop>
+					<DesignActionLoop id="1383" varName="r" forEach="1 to 32">
+						<children>
+							<DesignActionUpdateNode id="1384" updAt="$PERSISTENT/Root/dailyRecord/row[$r]/solarMeter,
+$PERSISTENT/Root/dailyRecord/row[$r]/usageMeter,
+$PERSISTENT/Root/dailyRecord/row[$r]/produced,
+$PERSISTENT/Root/dailyRecord/row[$r]/surplus" resOf="0"/>
+							<DesignActionUpdateNode id="1385" updAt="$PERSISTENT/Root/dailyRecord/row[$r]/used" resOf="0.125"/>
+						</children>
+					</DesignActionLoop>
+					<DesignActionLoop id="1903" varName="r" forEach="1 to 12">
+						<children>
+							<DesignActionUpdateNode id="1904" updAt="$PERSISTENT/Root/billingHistory/row[$r]/date" resOf="add-months-to-date( current-date-no-TZ() ,  $r - 13 )
+"/>
+							<DesignActionUpdateNode id="1905" updAt="$PERSISTENT/Root/billingHistory/row/solarMeter,
+$PERSISTENT/Root/billingHistory/row/usageMeter,
+$PERSISTENT/Root/billingHistory/row/kWhGen,
+$PERSISTENT/Root/billingHistory/row/kWhUsed,
+$PERSISTENT/Root/billingHistory/row/surplusEOM,
+$PERSISTENT/Root/billingHistory/row/surplusBalance" resOf="0"/>
+						</children>
+					</DesignActionLoop>
+					<DesignActionGroupRef id="1906" groupRef="1117"/>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="950" name="Calculate Monthly Surplus Balance">
+				<children>
+					<DesignActionCondition id="927" condition="($PERSISTENT/Root/newBillingRecord/row/solarMeter != &apos;&apos; ) and ($PERSISTENT/Root/newBillingRecord/row/usageMeter!= &apos;&apos;)">
+						<children>
+							<DesignActionConditionTrue id="928">
+								<children>
+									<DesignActionCondition id="1008" condition="$PERSISTENT/Root/newBillingRecord/row/usageMeter &gt; 2000">
+										<children>
+											<DesignActionConditionTrue id="1009">
+												<children>
+													<DesignActionUpdateNode id="1007" updAt="$PERSISTENT/Root/newBillingRecord/row/usageMeter" resOf="$PERSISTENT/Root/newBillingRecord/row/usageMeter - 100000"/>
+												</children>
+											</DesignActionConditionTrue>
+										</children>
+									</DesignActionCondition>
+									<DesignActionUpdateNode id="1880" updAt="$PERSISTENT/Root/newBillingRecord/row/kWhGen" resOf="($PERSISTENT/Root/newBillingRecord/row/solarMeter) - 
+($PERSISTENT/Root/billingHistory/row[12]/solarMeter)"/>
+									<DesignActionUpdateNode id="931" updAt="$PERSISTENT/Root/newBillingRecord/row/kWhUsed" resOf="$PERSISTENT/Root/newBillingRecord/row/kWhGen + ($PERSISTENT/Root/newBillingRecord/row/usageMeter - $PERSISTENT/Root/billingHistory/row[12]/usageMeter )"/>
+									<DesignActionUpdateNode id="932" updAt="$PERSISTENT/Root/newBillingRecord/row/surplusEOM" resOf="$PERSISTENT/Root/newBillingRecord/row/kWhGen
+ - $PERSISTENT/Root/newBillingRecord/row/kWhUsed"/>
+									<DesignActionUpdateNode id="1886" updAt="$PERSISTENT/Root/newBillingRecord/row/surplusBalance" resOf="$PERSISTENT/Root/newBillingRecord/row/surplusEOM + $PERSISTENT/Root/billingHistory/row[12]/surplusBalance"/>
+								</children>
+							</DesignActionConditionTrue>
+						</children>
+					</DesignActionCondition>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="623" name="Generate chart data">
+				<children>
+					<DesignActionComment id="1039" comment="Reload Main page charts"/>
+					<DesignActionReloadData id="649" reloadRef="2383"/>
+					<DesignActionReloadData id="659" reloadRef="650"/>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="1038" name="Reload Billing charts">
+				<children>
+					<DesignActionComment id="1034" comment="Reload Billing page Charts"/>
+					<DesignActionReloadData id="1035" reloadRef="1010"/>
+					<DesignActionReloadData id="1036" reloadRef="2302"/>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="1544" name="Calculate new daily production">
+				<children>
+					<DesignActionCondition id="1526" condition="($PERSISTENT/Root/newDailyRecord/row/solarMeter != &apos;&apos; ) and ($PERSISTENT/Root/newDailyRecord/row/usageMeter != &apos;&apos;)">
+						<children>
+							<DesignActionConditionTrue id="1527">
+								<children>
+									<DesignActionCondition id="1536" condition="$PERSISTENT/Root/newDailyRecord/row/usageMeter &gt; 2000">
+										<children>
+											<DesignActionConditionTrue id="1537">
+												<children>
+													<DesignActionUpdateNode id="1538" updAt="$PERSISTENT/Root/newDailyRecord/row/usageMeter" resOf="$PERSISTENT/Root/newDailyRecord/row/usageMeter - 100000"/>
+												</children>
+											</DesignActionConditionTrue>
+										</children>
+									</DesignActionCondition>
+									<DesignActionUpdateNode id="1539" updAt="$PERSISTENT/Root/newDailyRecord/row/produced" resOf="$PERSISTENT/Root/newDailyRecord/row/solarMeter - $PERSISTENT/Root/dailyRecord/row[32]/solarMeter"/>
+									<DesignActionUpdateNode id="1540" updAt="$PERSISTENT/Root/newDailyRecord/row/used" resOf="$PERSISTENT/Root/newDailyRecord/row/produced + 
+($PERSISTENT/Root/newDailyRecord/row/usageMeter - 
+$PERSISTENT/Root/dailyRecord/row[32]/usageMeter )"/>
+									<DesignActionUpdateNode id="1541" updAt="$PERSISTENT/Root/newDailyRecord/row/surplus" resOf="$PERSISTENT/Root/newDailyRecord/row/produced - $PERSISTENT/Root/newDailyRecord/row/used"/>
+									<DesignActionUpdateNode id="1574" updAt="$PERSISTENT/Root/calcStep" resOf="1"/>
+								</children>
+							</DesignActionConditionTrue>
+							<DesignActionConditionFalse id="1576">
+								<children>
+									<DesignActionUpdateNode id="1575" updAt="$PERSISTENT/Root/calcStep" resOf="0"/>
+								</children>
+							</DesignActionConditionFalse>
+						</children>
+					</DesignActionCondition>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="1117" name="Update billing history with last daily reading">
+				<children>
+					<DesignActionComment id="1108" comment="This will copy the daily readings to the last row of the monthly table"/>
+					<DesignActionComment id="1109" comment="to show intermediate status between bills"/>
+					<DesignActionUpdateNode id="1110" updAt="$PERSISTENT/Root/newBillingRecord/row/date" resOf="$PERSISTENT/Root/dailyRecord/row[count($PERSISTENT/Root/dailyRecord/row)]/date"/>
+					<DesignActionUpdateNode id="1111" updAt="$PERSISTENT/Root/newBillingRecord/row/solarMeter" resOf="$PERSISTENT/Root/dailyRecord/row[count($PERSISTENT/Root/dailyRecord/row)]/solarMeter"/>
+					<DesignActionUpdateNode id="1870" updAt="$PERSISTENT/Root/newBillingRecord/row/usageMeter" resOf="$PERSISTENT/Root/dailyRecord/row[count($PERSISTENT/Root/dailyRecord/row)]/usageMeter"/>
+					<DesignActionUpdateNode id="1871" updAt="$PERSISTENT/Root/newBillingRecord/row/kWhUsed,
+$PERSISTENT/Root/newBillingRecord/row/surplusEOM,
+$PERSISTENT/Root/newBillingRecord/row/surplusBalance" resOf="0"/>
+					<DesignActionCondition id="1887" condition="count($PERSISTENT/Root/billingHistory/row) = 13">
+						<children>
+							<DesignActionConditionTrue id="1888">
+								<children>
+									<DesignActionCondition id="2250" condition="$PERSISTENT/Root/newBillingRecord/row/date &gt; $PERSISTENT/Root/billingHistory/row[13]/date">
+										<children>
+											<DesignActionConditionTrue id="2251">
+												<children>
+													<DesignActionDeleteNode id="2252" delAt="$PERSISTENT/Root/billingHistory/row[13]"/>
+												</children>
+											</DesignActionConditionTrue>
+										</children>
+									</DesignActionCondition>
+								</children>
+							</DesignActionConditionTrue>
+						</children>
+					</DesignActionCondition>
+					<DesignActionGroupRef id="2261" groupRef="950"/>
+					<DesignActionAppendNode id="2259" appAt="$PERSISTENT/Root/billingHistory" resOf="$PERSISTENT/Root/newBillingRecord/row"/>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="2029" name="Email Current Data ">
+				<children>
+					<DesignActionEmail id="2026" subject="concat(&apos;Current Solar Data &apos;, current-date-no-TZ())" body="&apos;The current solar production data is attached to this message.&apos;">
+						<Attachments>
+							<attachment file="&apos;user-dailyRecord.xml&apos;" loc="$PERSISTENT/Root/dailyRecord"/>
+							<attachment file="&apos;user-billingHistory.xml&apos;" loc="$PERSISTENT/Root/billingHistory"/>
+						</Attachments>
+					</DesignActionEmail>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="2053" name="Load Billing History from file">
+				<children>
+					<DesignActionLoadSaveFile id="2033" isPageXMLRootXPath="1" pageXMLRootXPath="$XML-user-billing-upload">
+						<FileSettings id="2034" fileOnClient="1" createDirs="0" userChosenFile="1" fileFilter="xml" webMessageBox="Select an xml file containing billing history"/>
+					</DesignActionLoadSaveFile>
+					<DesignActionCondition id="2083" condition="count($XML-user-billing-upload/billingHistory/row) = 12">
+						<children>
+							<DesignActionConditionTrue id="2084">
+								<children>
+									<DesignActionLoop id="2085" varName="r" forEach="1 to 12">
+										<children>
+											<DesignActionAppendNode id="2114" appAt="$PERSISTENT/Root/billingHistory" resOf="$XML-user-billing-upload/billingHistory/row[$r]"/>
+										</children>
+									</DesignActionLoop>
+									<DesignActionLoop id="2116" varName="i" forEach="1 to count($PERSISTENT/Root/billingHistory/row) - 12">
+										<children>
+											<DesignActionDeleteNode id="2117" delAt="$PERSISTENT/Root/billingHistory/row[1]"/>
+										</children>
+									</DesignActionLoop>
+									<DesignActionGroupRef id="2169" groupRef="1117"/>
+									<DesignActionGroupRef id="2218" groupRef="2209"/>
+									<DesignActionMessageBox id="2172" msgBoxTitle="&apos;Success!&apos;" msgBoxMsg="&apos;Update complete.&apos;">
+										<children>
+											<DesignActionMessageBoxButton id="2173"/>
+										</children>
+									</DesignActionMessageBox>
+								</children>
+							</DesignActionConditionTrue>
+							<DesignActionConditionFalse id="2174">
+								<children>
+									<DesignActionCondition id="2178" condition="count($XML-user-billing-upload/billingHistory/row) = 13">
+										<children>
+											<DesignActionConditionTrue id="2179">
+												<children>
+													<DesignActionLoop id="2180" varName="r" forEach="1 to 13">
+														<children>
+															<DesignActionAppendNode id="2181" appAt="$PERSISTENT/Root/billingHistory" resOf="$XML-user-billing-upload/billingHistory/row[$r]"/>
+														</children>
+													</DesignActionLoop>
+													<DesignActionLoop id="2182" varName="i" forEach="1 to count($PERSISTENT/Root/billingHistory/row) - 13">
+														<children>
+															<DesignActionDeleteNode id="2183" delAt="$PERSISTENT/Root/billingHistory/row[1]"/>
+														</children>
+													</DesignActionLoop>
+													<DesignActionGroupRef id="2217" groupRef="2209"/>
+													<DesignActionMessageBox id="2185" msgBoxTitle="&apos;Success!&apos;" msgBoxMsg="&apos;Update complete.&apos;">
+														<children>
+															<DesignActionMessageBoxButton id="2186"/>
+														</children>
+													</DesignActionMessageBox>
+												</children>
+											</DesignActionConditionTrue>
+											<DesignActionConditionFalse id="2197">
+												<children>
+													<DesignActionMessageBox id="2195" msgBoxTitle="&apos;Update Failed!&apos;" msgBoxMsg="&apos;Source file must have 12 or 13 rows. Use an emailed billing history file as an example of the necessary structure.&apos;">
+														<children>
+															<DesignActionMessageBoxButton id="2196"/>
+														</children>
+													</DesignActionMessageBox>
+												</children>
+											</DesignActionConditionFalse>
+										</children>
+									</DesignActionCondition>
+								</children>
+							</DesignActionConditionFalse>
+						</children>
+					</DesignActionCondition>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="2209" name="Calculate monthly surplus after file load">
+				<children>
+					<DesignActionLoop id="2207" varName="i" forEach="1 to count($PERSISTENT/Root/billingHistory/row)">
+						<children>
+							<DesignActionCondition id="2219" condition="$PERSISTENT/Root/billingHistory/row[$i]/usageMeter &gt; 2000">
+								<children>
+									<DesignActionConditionTrue id="2220">
+										<children>
+											<DesignActionUpdateNode id="2221" updAt="$PERSISTENT/Root/billingHistory/row[$i]/usageMeter" resOf="$PERSISTENT/Root/billingHistory/row[$i]/usageMeter - 100000"/>
+										</children>
+									</DesignActionConditionTrue>
+								</children>
+							</DesignActionCondition>
+						</children>
+					</DesignActionLoop>
+					<DesignActionLoop id="2212" varName="c" forEach="2 to count($PERSISTENT/Root/billingHistory/row)">
+						<children>
+							<DesignActionCondition id="2271" condition="( $PERSISTENT/Root/billingHistory/row[$c]/solarMeter &gt; 0 ) and
+( $PERSISTENT/Root/billingHistory/row[$c]/usageMeter &gt; 0 ) ">
+								<children>
+									<DesignActionConditionTrue id="2272">
+										<children>
+											<DesignActionUpdateNode id="2267" updAt="$PERSISTENT/Root/billingHistory/row[$c]/kWhGen" resOf="($PERSISTENT/Root/billingHistory/row[$c]/solarMeter) - 
+($PERSISTENT/Root/billingHistory/row[$c -1]/solarMeter)"/>
+											<DesignActionUpdateNode id="2268" updAt="$PERSISTENT/Root/billingHistory/row[$c]/kWhUsed" resOf="$PERSISTENT/Root/billingHistory/row[$c]/kWhGen + 
+($PERSISTENT/Root/billingHistory/row[$c]/usageMeter - 
+$PERSISTENT/Root/billingHistory/row[$c -1]/usageMeter )"/>
+											<DesignActionUpdateNode id="2269" updAt="$PERSISTENT/Root/billingHistory/row[$c]/surplusEOM" resOf="$PERSISTENT/Root/billingHistory/row[$c]/kWhGen
+ - $PERSISTENT/Root/billingHistory/row[$c]/kWhUsed"/>
+											<DesignActionUpdateNode id="2270" updAt="$PERSISTENT/Root/billingHistory/row[$c]/surplusBalance" resOf="$PERSISTENT/Root/billingHistory/row[$c]/surplusEOM + 
+$PERSISTENT/Root/billingHistory/row[$c -1]/surplusBalance"/>
+										</children>
+									</DesignActionConditionTrue>
+								</children>
+							</DesignActionCondition>
+							<DesignActionCondition id="2222" condition="$PERSISTENT/Root/billingHistory/row[$c]/surplusBalance &lt; 0">
+								<children>
+									<DesignActionConditionTrue id="2223">
+										<children>
+											<DesignActionUpdateNode id="2224" updAt="$PERSISTENT/Root/billingHistory/row[$c]/surplusBalance" resOf="0"/>
+										</children>
+									</DesignActionConditionTrue>
+								</children>
+							</DesignActionCondition>
+						</children>
+					</DesignActionLoop>
+				</children>
+			</DesignActionGroup>
+			<DesignActionGroup id="2338" name="Insert missing daily records">
+				<children>
+					<DesignActionCondition id="2341" condition="days-from-duration( 
+xs:date($PERSISTENT/Root/dailyRecord/row[32]/date ) - xs:date($PERSISTENT/Root/dailyRecord/row[31]/date ) ) &gt; 1">
+						<children>
+							<DesignActionConditionTrue id="2342">
+								<children>
+									<DesignActionUpdateNode id="2351" updAt="$PERSISTENT/Root/missingDays" resOf="days-from-duration( 
+xs:date($PERSISTENT/Root/dailyRecord/row[32]/date ) - xs:date($PERSISTENT/Root/dailyRecord/row[31]/date ) )"/>
+									<DesignActionLoop id="2343" varName="nd" forEach="1 to ( days-from-duration( 
+xs:date($PERSISTENT/Root/dailyRecord/row[32]/date ) - xs:date($PERSISTENT/Root/dailyRecord/row[31]/date ) ) - 1 )">
+										<children>
+											<DesignActionUpdateNode id="2345" updAt="$PERSISTENT/Root/newDailyRecord/row/date" resOf="add-days-to-date( 
+$PERSISTENT/Root/dailyRecord/row[31]/date, 1 )"/>
+											<DesignActionUpdateNode id="2346" updAt="$PERSISTENT/Root/newDailyRecord/row/solarMeter,
+$PERSISTENT/Root/newDailyRecord/row/usageMeter,
+$PERSISTENT/Root/newDailyRecord/row/produced,
+$PERSISTENT/Root/newDailyRecord/row/used,
+$PERSISTENT/Root/newDailyRecord/row/surplus" resOf="0"/>
+											<DesignActionUpdateNode id="2350" updAt="$PERSISTENT/Root/newDailyRecord/row/used" resOf="round(
+$PERSISTENT/Root/dailyRecord/row[32]/used div $PERSISTENT/Root/missingDays )"/>
+											<DesignActionUpdateNode id="2352" updAt="$PERSISTENT/Root/newDailyRecord/row/produced" resOf="round($PERSISTENT/Root/dailyRecord/row[32]/produced div $PERSISTENT/Root/missingDays )"/>
+											<DesignActionUpdateNode id="2358" updAt="$PERSISTENT/Root/newDailyRecord/row/surplus" resOf="$PERSISTENT/Root/newDailyRecord/row/produced - $PERSISTENT/Root/newDailyRecord/row/used"/>
+											<DesignActionInsertNode id="2347" insAt="$PERSISTENT/Root/dailyRecord/row[32]" resOf="$PERSISTENT/Root/newDailyRecord/row"/>
+											<DesignActionDeleteNode id="2348" delAt="$PERSISTENT/Root/dailyRecord/row[1]"/>
+										</children>
+									</DesignActionLoop>
+									<DesignActionUpdateNode id="2356" updAt="$PERSISTENT/Root/dailyRecord/row[32]/used" resOf="$PERSISTENT/Root/dailyRecord/row[31]/used"/>
+									<DesignActionUpdateNode id="2357" updAt="$PERSISTENT/Root/dailyRecord/row[32]/produced" resOf="$PERSISTENT/Root/dailyRecord/row[31]/produced"/>
+									<DesignActionUpdateNode id="2359" updAt="$PERSISTENT/Root/dailyRecord/row[32]/surplus" resOf="$PERSISTENT/Root/dailyRecord/row[31]/surplus"/>
+								</children>
+							</DesignActionConditionTrue>
+						</children>
+					</DesignActionCondition>
+				</children>
+			</DesignActionGroup>
+		</children>
+	</ActionGroupRoot>
+	<XPathFunctionsRoot id="486">
+		<children>
+			<DesignXPathFunction id="2125" xpathfn="declare function AutoTextColor() as xs:string
+{
+	if ( hex-string-to-integer(substring-after($MT_PageBackgroundColor, &apos;#&apos;)) &lt; hex-string-to-integer(&apos;808080&apos;) ) then &apos;#FFFFFF&apos; else &apos;#000000&apos;
+}"/>
+			<DesignXPathFunction id="2334" xpathfn="declare function CalcMonthValueLimit()
+{
+	for $m1 in  max ($PERSISTENT/Root/billingHistory/row/kWhGen) 
+
+	for $m2 in max($PERSISTENT/Root/billingHistory/row/kWhUsed ) return 
+
+	if ( $m1 &gt; $m2) then $m1 * 1.05 else $m2 *1.05
+
+}"/>
+			<DesignXPathFunction id="2335" xpathfn="declare function CalcDayValueLimit()
+{
+	for $m1 in max($PERSISTENT/Root/dailyRecord/row/used) 
+
+	for $m2 in max($PERSISTENT/Root/dailyRecord/row/produced ) return 
+
+	if ( $m1 &gt; $m2 ) then $m1 + 1 else $m2 + 1
+}"/>
+		</children>
+	</XPathFunctionsRoot>
+	<PageXMLNamespaceRoot id="57">
+		<children>
+			<PageXMLNamespace id="58" defNS="1"/>
+		</children>
+	</PageXMLNamespaceRoot>
+	<PageXMLPersistentRoot id="59" name="PERSISTENT">
+		<children>
+			<PageXMLElement id="60" name="Root">
+				<children>
+					<PageXMLElement id="61" name="skipIntro" mustExist="1" default="false"/>
+					<PageXMLElement id="2142" name="customGray" mustExist="1" default="#BFBFBF"/>
+					<PageXMLElement id="1912" name="firstRun" mustExist="1" default="1"/>
+					<PageXMLElement id="585" name="dataView" mustExist="1" default="0"/>
+					<PageXMLElement id="587" name="graphLimit" mustExist="1" default="26"/>
+					<PageXMLElement id="981" name="calcStep" mustExist="1" default="0"/>
+					<PageXMLElement id="2353" name="missingDays" mustExist="1" default="1"/>
+					<PageXMLElement id="1301" name="dailyRecord">
+						<children>
+							<PageXMLElement id="1274" name="row">
+								<children>
+									<PageXMLElement id="1275" name="date" mustExist="1" default="&apos;1/1/2020&apos;" defValueIsXPath="1"/>
+									<PageXMLElement id="1276" name="solarMeter" mustExist="1" default="0"/>
+									<PageXMLElement id="1277" name="usageMeter" mustExist="1" default="0"/>
+									<PageXMLElement id="1315" name="produced" mustExist="1" default="0"/>
+									<PageXMLElement id="1316" name="used" mustExist="1" default="0"/>
+									<PageXMLElement id="1278" name="surplus" mustExist="1" default="0"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+					<PageXMLElement id="1468" name="newDailyRecord">
+						<children>
+							<PageXMLElement id="1469" name="row">
+								<children>
+									<PageXMLElement id="1470" name="date" mustExist="1" default="&apos;2020-1-1&apos;" defValueIsXPath="1"/>
+									<PageXMLElement id="1471" name="solarMeter" mustExist="1"/>
+									<PageXMLElement id="1472" name="usageMeter" mustExist="1"/>
+									<PageXMLElement id="1473" name="produced" mustExist="1"/>
+									<PageXMLElement id="1474" name="used" mustExist="1"/>
+									<PageXMLElement id="1475" name="surplus" mustExist="1"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+					<PageXMLElement id="1060" name="chartRedraw" mustExist="1" default="0"/>
+					<PageXMLElement id="1697" name="newBillingRecord">
+						<children>
+							<PageXMLElement id="1699" name="row">
+								<children>
+									<PageXMLElement id="1700" name="date" mustExist="1" default="2020-1-1"/>
+									<PageXMLElement id="1701" name="solarMeter" mustExist="1"/>
+									<PageXMLElement id="1702" name="usageMeter" mustExist="1"/>
+									<PageXMLElement id="1703" name="kWhGen" mustExist="1"/>
+									<PageXMLElement id="1704" name="kWhUsed" mustExist="1"/>
+									<PageXMLElement id="1705" name="surplusEOM" mustExist="1"/>
+									<PageXMLElement id="1706" name="surplusBalance" mustExist="1"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+					<PageXMLElement id="1696" name="billingHistory">
+						<children>
+							<PageXMLElement id="1683" name="row">
+								<children>
+									<PageXMLElement id="1684" name="date" mustExist="1" default="2020-1-1"/>
+									<PageXMLElement id="1685" name="solarMeter" mustExist="1"/>
+									<PageXMLElement id="1686" name="usageMeter" mustExist="1"/>
+									<PageXMLElement id="1687" name="kWhGen" mustExist="1"/>
+									<PageXMLElement id="1688" name="kWhUsed" mustExist="1"/>
+									<PageXMLElement id="1689" name="surplusEOM" mustExist="1"/>
+									<PageXMLElement id="1690" name="surplusBalance" mustExist="1"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+				</children>
+			</PageXMLElement>
+		</children>
+	</PageXMLPersistentRoot>
+	<PageXMLRoots id="56">
+		<children>
+			<PageXMLRootXML id="1293" name="XML-daily-production-sample-data" persistOnClient="1" readOnlyXML="1" hasUrl="1">
+				<children>
+					<PageXMLElement id="1294" name="data" from="xml">
+						<children>
+							<PageXMLElement id="1295" name="row" from="xml">
+								<children>
+									<PageXMLElement id="1296" name="date" from="xml"/>
+									<PageXMLElement id="1297" name="solar" from="xml"/>
+									<PageXMLElement id="1298" name="usage" from="xml"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+				</children>
+				<DefaultFile so="1" id="1299" url="productionSample.xml" deployable_so="1302"/>
+			</PageXMLRootXML>
+			<PageXMLRootXML id="1692" name="XML-billing-history-sample" persistOnClient="1" readOnlyXML="1" hasUrl="1">
+				<children>
+					<PageXMLElement id="1693" name="data" from="xml">
+						<children>
+							<PageXMLElement id="1675" name="row" from="xml">
+								<children>
+									<PageXMLElement id="1676" name="date" from="xml"/>
+									<PageXMLElement id="1677" name="solarMeter" from="xml"/>
+									<PageXMLElement id="1678" name="usageMeter" from="xml"/>
+									<PageXMLElement id="1679" name="kWhGen" from="xml"/>
+									<PageXMLElement id="1680" name="kWhUsed" from="xml"/>
+									<PageXMLElement id="1681" name="surplusEOM" from="xml"/>
+									<PageXMLElement id="1682" name="surplusBalance" from="xml"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+				</children>
+				<DefaultFile so="1" id="1694" url="billing-record-sample.xml" deployable_so="1698"/>
+			</PageXMLRootXML>
+			<PageXMLRootXML id="2079" name="XML-user-billing-upload" hasUrl="1">
+				<children>
+					<PageXMLElement id="2105" name="billingHistory">
+						<children>
+							<PageXMLElement id="2106" name="row">
+								<children>
+									<PageXMLElement id="2107" name="date"/>
+									<PageXMLElement id="2108" name="solarMeter"/>
+									<PageXMLElement id="2109" name="usageMeter"/>
+									<PageXMLElement id="2110" name="kWhGen"/>
+									<PageXMLElement id="2111" name="kWhUsed"/>
+									<PageXMLElement id="2112" name="surplusEOM"/>
+									<PageXMLElement id="2113" name="surplusBalance"/>
+								</children>
+							</PageXMLElement>
+						</children>
+					</PageXMLElement>
+				</children>
+				<DefaultFile so="1" id="2080" url="billing-record-user.xml" deployable_so="2082"/>
+			</PageXMLRootXML>
+		</children>
+	</PageXMLRoots>
+	<WorkflowRoot id="53">
+		<children>
+			<WorkflowPageRef id="54" page="2"/>
+			<WorkflowPageRef id="918" page="689"/>
+			<WorkflowPageRef id="164" page="155"/>
+		</children>
+	</WorkflowRoot>
+	<GlobalVariables id="62">
+		<children>
+			<GlobalVariable id="63" sysVar="MT_Android" idxIcon_so="0"/>
+			<GlobalVariable id="64" sysVar="MT_iOS" idxIcon_so="1"/>
+			<GlobalVariable id="65" sysVar="MT_Browser" idxIcon_so="2"/>
+			<GlobalVariable id="66" sysVar="MT_iPad" idxIcon_so="3"/>
+			<GlobalVariable id="67" sysVar="MT_Windows" idxIcon_so="6"/>
+			<GlobalVariable id="68" sysVar="MT_WindowsPhone" idxIcon_so="7"/>
+			<GlobalVariable id="69" sysVar="MT_DeviceWidth"/>
+			<GlobalVariable id="70" sysVar="MT_DeviceHeight"/>
+			<GlobalVariable id="71" sysVar="MT_DPIX"/>
+			<GlobalVariable id="72" sysVar="MT_DPIY"/>
+			<GlobalVariable id="73" sysVar="MT_Landscape" idxIcon_so="4"/>
+			<GlobalVariable id="74" sysVar="MT_Portrait" idxIcon_so="5"/>
+			<GlobalVariable id="75" sysVar="MT_CanvasX"/>
+			<GlobalVariable id="76" sysVar="MT_CanvasY"/>
+			<GlobalVariable id="77" sysVar="MT_ClientLanguage"/>
+			<GlobalVariable id="78" sysVar="MT_TelephonyAvailable" idxIcon_so="20"/>
+			<GlobalVariable id="79" sysVar="MT_SMSAvailable" idxIcon_so="21"/>
+			<GlobalVariable id="80" sysVar="MT_ButtonTextColor"/>
+			<GlobalVariable id="81" sysVar="MT_ButtonBackgroundColor"/>
+			<GlobalVariable id="82" sysVar="MT_EditFieldTextColor"/>
+			<GlobalVariable id="83" sysVar="MT_EditFieldBackgroundColor"/>
+			<GlobalVariable id="84" sysVar="MT_LabelTextColor"/>
+			<GlobalVariable id="85" sysVar="MT_LabelBackgroundColor"/>
+			<GlobalVariable id="86" sysVar="MT_PageBackgroundColor"/>
+			<GlobalVariable id="87" sysVar="MT_FirstPageLoad"/>
+			<GlobalVariable id="88" sysVar="MT_TargetNode"/>
+			<GlobalVariable id="89" sysVar="MT_ControlKind"/>
+			<GlobalVariable id="90" sysVar="MT_ControlName"/>
+			<GlobalVariable id="91" sysVar="MT_ControlNode"/>
+			<GlobalVariable id="92" sysVar="MT_PageName"/>
+			<GlobalVariable id="93" sysVar="MT_UserName"/>
+			<GlobalVariable id="94" sysVar="MT_UserRoles"/>
+			<GlobalVariable id="95" sysVar="MT_ControlValue"/>
+			<GlobalVariable id="96" sysVar="MT_ControlValueBeforeChange"/>
+			<GlobalVariable id="97" sysVar="MT_SimulationMode"/>
+			<GlobalVariable id="98" sysVar="MT_DBExecute_Result"/>
+			<GlobalVariable id="99" sysVar="MT_CameraAvailable"/>
+			<GlobalVariable id="100" sysVar="MT_GeolocationAvailable"/>
+			<GlobalVariable id="101" sysVar="MT_InputParameters"/>
+			<GlobalVariable id="102" sysVar="MT_HTTPExecute_Result"/>
+			<GlobalVariable id="103" sysVar="MT_ServerConnectionErrorLocation"/>
+			<GlobalVariable id="104" sysVar="MT_IsAppStoreApp"/>
+			<GlobalVariable id="105" sysVar="MT_WindowWidth"/>
+			<GlobalVariable id="106" sysVar="MT_WindowHeight"/>
+			<GlobalVariable id="107" sysVar="MT_AudioChannel"/>
+			<GlobalVariable id="108" sysVar="MT_TableColumnContext"/>
+			<GlobalVariable id="109" sysVar="MT_NFCAvailable"/>
+			<GlobalVariable id="110" sysVar="MT_IsEmbedded"/>
+			<GlobalVariable id="111" sysVar="MT_GeolocationMapMarker"/>
+			<GlobalVariable id="112" sysVar="MT_AuthenticationToken"/>
+			<GlobalVariable id="113" sysVar="MT_MeasureControls"/>
+		</children>
+	</GlobalVariables>
+	<ChartSettingsRoot id="262">
+		<children>
+			<ChartSettings id="593">
+				<chartData so="1" chart-data-flexible="1" multi-layer-chart="1">
+					<layer>
+						<dataset>
+							<dataseries for-each="$PERSISTENT/Root/dailyRecord" series-name="&apos;kWh Consumed&apos;" x-value="for $i in $PERSISTENT/Root/graphLimit  to 32  return 
+substring-after( row[$i]/date ,  &apos;-&apos; )" y-value="for $i in $PERSISTENT/Root/graphLimit to 32 return 
+ row[$i]/used
+"/>
+						</dataset>
+						<dataseries-xny-rows for-each="$PERSISTENT/Root/chartData/row" x-value="substring-after( date ,  &apos;-&apos; )" auto-x-value="0">
+							<col y-value="used" y-name="&quot;kWh Consumed&quot;"/>
+						</dataseries-xny-rows>
+						<chartsettings>
+							<General SettingsVersion="3" ChartKind="AreaChart" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9" Title="Production Record">
+								<TitleFont Size="5.%"/>
+							</General>
+							<Area Transparency="50"/>
+							<Colors Style="User" Colors="#dc7708" Colors1="#0879b5" Colors2="#04b508" Colors3="#ffd700" Colors4="#4410a3" Colors5="#dc143c" Colors6="#878369" Colors7="#b71b68" Colors8="#a25d2d" Colors9="#0028ff" Colors10="#bfbfbf" Colors11="#237518" Colors12="#52aca0" Colors13="#d3c15d" Colors14="#8971d8"/>
+							<XY>
+								<XAxis AxisGridColor="#c0c0c0" ShowCategories_Every="0"/>
+								<YAxis AutoRange="0" RangeTill="100." AxisGridColor="#c0c0c0" UseAutoTick="0" ManualTickInterval="2." MinAutoTickInterval="2.000000"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/General/@BKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/@PlotBorderColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/@PlotBKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/TitleFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/LegendFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/AxisLabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/Area/@OutlineColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AutoRange" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeFrom" xpath="&apos;0&apos;"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeTill" xpath="CalcDayValueLimit()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+					<layer>
+						<dataset>
+							<dataseries for-each="$PERSISTENT/Root/dailyRecord" series-name="&apos;kWh Produced&apos;" x-value="for $i in $PERSISTENT/Root/graphLimit to 32  return 
+substring-after( row[$i]/date ,  &apos;-&apos; )" y-value="for $i in $PERSISTENT/Root/graphLimit to 32 return 
+ row[$i]/produced "/>
+						</dataset>
+						<dataseries-xny-rows>
+							<col y-value="produced" y-name="&quot;kWh Produced&quot;"/>
+						</dataseries-xny-rows>
+						<chartsettings>
+							<General SettingsVersion="3" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9"/>
+							<Bar ShadowColor="#3c3c3c" OutlineColor="#696969"/>
+							<Colors Style="User" UseSubsequentColors="0" Colors="#0879b5" Colors1="#dc7708" Colors2="#04b508" Colors3="#dc143c" Colors4="#ffd700" Colors5="#4410a3" Colors6="#878369" Colors7="#b71b68" Colors8="#a25d2d" Colors9="#0028ff" Colors10="#bfbfbf" Colors11="#237518" Colors12="#52aca0" Colors13="#d3c15d" Colors14="#8971d8"/>
+							<XY>
+								<YAxis AutoRange="0" RangeTill="100." AxisGridColor="#c0c0c0" ManualTickInterval="3." ShowTicks="0" ShowValues="0" AxisPosition="RightOrTop" MinAutoTickInterval="2.000000"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/Bar/LabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AutoRange" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeFrom" xpath="&apos;0&apos;"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeTill" xpath="CalcDayValueLimit()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+				</chartData>
+			</ChartSettings>
+			<ChartSettings id="655">
+				<chartData so="1" chart-data-flexible="1" multi-layer-chart="1">
+					<layer>
+						<dataset>
+							<dataseries for-each="$PERSISTENT/Root/dailyRecord" series-name="&apos;kWh Surplus&apos;" x-value="for $i in $PERSISTENT/Root/graphLimit to 32  return 
+substring-after( row[$i]/date ,  &apos;-&apos; )" y-value="for $i in  $PERSISTENT/Root/graphLimit to 32 return 
+if ( 
+row[$i]/surplus &gt; 0 ) then row[$i]/surplus else 0"/>
+						</dataset>
+						<dataseries-xny-rows for-each="$PERSISTENT/Root/dailyRecord/row" x-value="substring-after( date ,  &apos;-&apos; )" auto-x-value="0">
+							<col y-value="surplus" y-name="&quot;Daily Surplus kWh&quot;"/>
+						</dataseries-xny-rows>
+						<chartsettings>
+							<General SettingsVersion="3" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9" Title="Daily Balance kWh" ShowLegend="0"/>
+							<Bar ShadowColor="#3c3c3c" OutlineColor="#696969"/>
+							<Colors Style="User" Colors="#0879b5" Colors1="#dc7708" Colors2="#04b508" Colors3="#ffd700" Colors4="#4410a3" Colors5="#dc143c" Colors6="#878369" Colors7="#b71b68" Colors8="#a25d2d" Colors9="#0028ff" Colors10="#bfbfbf" Colors11="#237518" Colors12="#52aca0" Colors13="#d3c15d" Colors14="#8971d8"/>
+							<XY>
+								<XAxis AxisLabel="Day" AxisGridColor="#c0c0c0"/>
+								<YAxis AxisGridColor="#c0c0c0" ManualTickInterval="2." MinAutoTickInterval="1.000000"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/General/@BKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/@PlotBorderColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/@PlotBKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/TitleFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/LegendFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/AxisLabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/Bar/LabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/@AutoRangeIncludesZero" xpath="0"/>
+								<main-property location="ChartSettings/XY/XAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AutoRange" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeFrom" xpath="if (min($PERSISTENT/Root/dailyRecord/row/surplus) - 1 &gt; 0 ) then 0
+else min($PERSISTENT/Root/dailyRecord/row/surplus) - 1"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeTill" xpath="(max($PERSISTENT/Root/dailyRecord/row/surplus) + 1)"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@UseAutoTick" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@ManualTickInterval" xpath="3"/>
+								<main-property location="ChartSettings/XY/YAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+					<layer>
+						<dataset>
+							<dataseries for-each="$PERSISTENT/Root/dailyRecord" series-name="&apos;kWh deficit&apos;" x-value="for $i in $PERSISTENT/Root/graphLimit to 32  return 
+substring-after( row[$i]/date ,  &apos;-&apos; )" y-value="for $i in  $PERSISTENT/Root/graphLimit to 32 return 
+if ( 
+row[$i]/surplus &lt; 0 ) then row[$i]/surplus else 0"/>
+						</dataset>
+						<chartsettings>
+							<General SettingsVersion="3" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9"/>
+							<Bar ShadowColor="#3c3c3c" OutlineColor="#696969"/>
+							<XY>
+								<YAxis AxisGridColor="#c0c0c0" ShowGrid="0" ManualTickInterval="2." ShowTicks="0" ShowValues="0" AxisPosition="RightOrTop" MinAutoTickInterval="1.000000"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/XY/YAxis/@AutoRange" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeFrom" xpath="if (min($PERSISTENT/Root/dailyRecord/row/surplus) - 1 &gt; 0 ) then 0
+else min($PERSISTENT/Root/dailyRecord/row/surplus) - 1"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeTill" xpath="(max($PERSISTENT/Root/dailyRecord/row/surplus) + 1)"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@ManualTickInterval" xpath="4"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+				</chartData>
+			</ChartSettings>
+			<ChartSettings id="1015">
+				<chartData so="1" map-data-categories="1" multi-layer-chart="1">
+					<layer>
+						<dataseries-xny-rows for-each="$PERSISTENT/Root/billingHistory/row" x-value="substring-before( substring-after(date ,&apos;-&apos;), &apos;-&apos; )" auto-x-value="0">
+							<col y-value="kWhUsed" y-name="&quot;kWh Consumed&quot;"/>
+						</dataseries-xny-rows>
+						<chartsettings>
+							<General SettingsVersion="3" ChartKind="AreaChart" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9" Title="Monthly Production">
+								<TitleFont Size="5.%"/>
+							</General>
+							<Area Transparency="50"/>
+							<Colors Style="User" Colors="#dc7708" Colors1="#0879b5" Colors2="#04b508" Colors3="#ffd700" Colors4="#4410a3" Colors5="#dc143c" Colors6="#878369" Colors7="#b71b68" Colors8="#a25d2d" Colors9="#0028ff" Colors10="#bfbfbf" Colors11="#237518" Colors12="#52aca0" Colors13="#d3c15d" Colors14="#8971d8"/>
+							<XY>
+								<XAxis AxisGridColor="#c0c0c0"/>
+								<YAxis AxisGridColor="#c0c0c0" MinAutoTickInterval="1.000000"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/General/@BKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/@PlotBorderColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/@PlotBKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/TitleFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/LegendFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/AxisLabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/Area/@OutlineColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AutoRange" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeFrom" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeTill" xpath="CalcMonthValueLimit()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+					<layer>
+						<dataseries-xny-rows>
+							<col y-value="kWhGen" y-name="&quot;kWh Produced&quot;"/>
+						</dataseries-xny-rows>
+						<chartsettings>
+							<General SettingsVersion="3" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9"/>
+							<Bar ShadowColor="#3c3c3c" OutlineColor="#696969"/>
+							<Colors Style="User" UseSubsequentColors="0" Colors="#0879b5" Colors1="#dc7708" Colors2="#04b508" Colors3="#dc143c" Colors4="#ffd700" Colors5="#4410a3" Colors6="#878369" Colors7="#b71b68" Colors8="#a25d2d" Colors9="#0028ff" Colors10="#bfbfbf" Colors11="#237518" Colors12="#52aca0" Colors13="#d3c15d" Colors14="#8971d8"/>
+							<XY>
+								<YAxis AxisGridColor="#c0c0c0" ShowTicks="0" ShowValues="0" AxisPosition="RightOrTop"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/Bar/LabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AutoRange" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeFrom" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@RangeTill" xpath="CalcMonthValueLimit()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+				</chartData>
+			</ChartSettings>
+			<ChartSettings id="1033">
+				<chartData so="1" map-data-categories="1">
+					<layer>
+						<dataseries-xny-rows for-each="$PERSISTENT/Root/billingHistory/row" x-value="substring-before( substring-after(date ,&apos;-&apos;), &apos;-&apos; )" auto-x-value="0">
+							<col y-value="surplusBalance" y-name="&quot;Month Surplus kWh&quot;"/>
+						</dataseries-xny-rows>
+						<chartsettings>
+							<General SettingsVersion="3" ChartKind="AreaChart" BKColorGradientEnd="#cce8ff" PlotBKColorGradientEnd="#e8ffe9" Title="Cumulative Surplus kWh" ShowLegend="0"/>
+							<Area Transparency="50"/>
+							<Colors Style="User" Colors="#0879b5" Colors1="#dc7708" Colors2="#04b508" Colors3="#ffd700" Colors4="#4410a3" Colors5="#dc143c" Colors6="#878369" Colors7="#b71b68" Colors8="#a25d2d" Colors9="#0028ff" Colors10="#bfbfbf" Colors11="#237518" Colors12="#52aca0" Colors13="#d3c15d" Colors14="#8971d8"/>
+							<XY>
+								<XAxis AxisLabel="Month" AxisGridColor="#c0c0c0" ShowGrid="1"/>
+								<YAxis AxisGridColor="#c0c0c0" ManualTickInterval="50." MinAutoTickInterval="50.000000"/>
+							</XY>
+						</chartsettings>
+						<chartsettings-xpath>
+							<main-properties>
+								<main-property location="ChartSettings/General/@BKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/@PlotBorderColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/@PlotBKColor" xpath="$MT_PageBackgroundColor"/>
+								<main-property location="ChartSettings/General/TitleFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/LegendFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/General/AxisLabelFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/Area/@OutlineColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/XAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@AxisColor" xpath="AutoTextColor()"/>
+								<main-property location="ChartSettings/XY/YAxis/@UseAutoTick" xpath="0"/>
+								<main-property location="ChartSettings/XY/YAxis/@ManualTickInterval" xpath="if ( max( $PERSISTENT/Root/billingHistory/row/surplusBalance) &lt; 300 ) then 50 else 100"/>
+								<main-property location="ChartSettings/XY/YAxis/ValueFont/@Color" xpath="AutoTextColor()"/>
+							</main-properties>
+						</chartsettings-xpath>
+					</layer>
+				</chartData>
+			</ChartSettings>
+		</children>
+	</ChartSettingsRoot>
+	<DeployableFiles so="1" id="420">
+		<children>
+			<DeployableFile id="1302" deploy="1"/>
+			<DeployableFile id="1698" deploy="1"/>
+			<DeployableFile id="2082" deploy="1"/>
+		</children>
+	</DeployableFiles>
+	<CustomerAppSettings so="1" id="52"/>
+</MobileTogetherDesign>
