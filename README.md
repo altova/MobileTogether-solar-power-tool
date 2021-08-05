@@ -11,4 +11,4 @@ These homes typically have two electric meters. One records electricity produced
 
 This app demonstrates several advanced features of Altova MobileTogether: charts with layers and dynamic XPath settings, sub pages as modal dialogs, scrollable tables, send email with file attachments, automatic support for Dark Theme, and more.
 
-This app is described in Altova blog posts at: https://www.altova.com/blog/mobile-app-development-a-user-story/ and https://www.altova.com/blog/mobile-apps-that-automatically-support-dark-theme/
+This app is described in Altova blog posts at: https://www.altova.com/blog/mobile-app-development-a-user-story/ , https://www.altova.com/blog/mobile-app-development-follow-up/ and https://www.altova.com/blog/mobile-apps-that-automatically-support-dark-theme/

@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2021 (http://www.altova.com) by Niki Devgood (Altova, Inc.) -->
+<!-- edited with XMLSpy v2021 rel. 3 (http://www.altova.com) by Niki Devgood (Altova, Inc.) -->
 <billingHistory>
-	<row>
-		<date>2020-04-15</date>
-		<solarMeter>0</solarMeter>
-		<usageMeter>0</usageMeter>
-		<kWhGen>0</kWhGen>
-		<kWhUsed>293</kWhUsed>
-		<surplusEOM>0</surplusEOM>
-		<surplusBalance>0</surplusBalance>
-	</row>
-	<row>
-		<date>2020-05-15</date>
-		<solarMeter>0</solarMeter>
-		<usageMeter>0</usageMeter>
-		<kWhGen>0</kWhGen>
-		<kWhUsed>270</kWhUsed>
-		<surplusEOM>0</surplusEOM>
-		<surplusBalance>0</surplusBalance>
-	</row>
-	<row>
-		<date>2020-06-15</date>
-		<solarMeter>0</solarMeter>
-		<usageMeter>0</usageMeter>
-		<kWhGen>0</kWhGen>
-		<kWhUsed>335</kWhUsed>
-		<surplusEOM>0</surplusEOM>
-		<surplusBalance>0</surplusBalance>
-	</row>
 	<row>
 		<date>2020-07-15</date>
 		<solarMeter>574</solarMeter>
@@ -108,5 +81,41 @@
 		<kWhUsed>310</kWhUsed>
 		<surplusEOM>101</surplusEOM>
 		<surplusBalance>101</surplusBalance>
+	</row>
+	<row>
+		<date>2021-04-15</date>
+		<solarMeter>4317</solarMeter>
+		<usageMeter>-278</usageMeter>
+		<kWhGen>494</kWhGen>
+		<kWhUsed>276</kWhUsed>
+		<surplusEOM>218</surplusEOM>
+		<surplusBalance>319</surplusBalance>
+	</row>
+	<row>
+		<date>2021-05-17</date>
+		<solarMeter>4916</solarMeter>
+		<usageMeter>-582</usageMeter>
+		<kWhGen>599</kWhGen>
+		<kWhUsed>295</kWhUsed>
+		<surplusEOM>304</surplusEOM>
+		<surplusBalance>623</surplusBalance>
+	</row>
+	<row>
+		<date>2021-06-16</date>
+		<solarMeter>5458</solarMeter>
+		<usageMeter>-784</usageMeter>
+		<kWhGen>542</kWhGen>
+		<kWhUsed>340</kWhUsed>
+		<surplusEOM>202</surplusEOM>
+		<surplusBalance>825</surplusBalance>
+	</row>
+	<row>
+		<date>2021-07-16</date>
+		<solarMeter>5966</solarMeter>
+		<usageMeter>-896</usageMeter>
+		<kWhGen>508</kWhGen>
+		<kWhUsed>396</kWhUsed>
+		<surplusEOM>112</surplusEOM>
+		<surplusBalance>937</surplusBalance>
 	</row>
 </billingHistory>

@@ -1,258 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
 	<row>
-		<date>2021-03-31</date>
-		<solarMeter>4029</solarMeter>
-		<usageMeter>-137</usageMeter>
-		<produced/>
+		<date>2021-06-27</date>
+		<solarMeter>5657</solarMeter>
+		<usageMeter>-843</usageMeter>
+		<produced>19</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-01</date>
-		<solarMeter>4049</solarMeter>
-		<usageMeter>-149</usageMeter>
-		<produced/>
+		<date>2021-06-28</date>
+		<solarMeter>5667</solarMeter>
+		<usageMeter>-840</usageMeter>
+		<produced>10</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-02</date>
-		<solarMeter>4068</solarMeter>
-		<usageMeter>-158</usageMeter>
-		<produced/>
+		<date>2021-06-29</date>
+		<solarMeter>5677</solarMeter>
+		<usageMeter>-842</usageMeter>
+		<produced>10</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-03</date>
-		<solarMeter>4088</solarMeter>
-		<usageMeter>-168</usageMeter>
-		<produced/>
+		<date>2021-06-30</date>
+		<solarMeter>5682</solarMeter>
+		<usageMeter>-838</usageMeter>
+		<produced>5</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-04</date>
-		<solarMeter>4104</solarMeter>
-		<usageMeter>-177</usageMeter>
-		<produced/>
+		<date>2021-07-01</date>
+		<solarMeter>5692</solarMeter>
+		<usageMeter>-839</usageMeter>
+		<produced>10</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-05</date>
-		<solarMeter>4122</solarMeter>
-		<usageMeter>-183</usageMeter>
-		<produced/>
+		<date>2021-07-02</date>
+		<solarMeter>5710</solarMeter>
+		<usageMeter>-846</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-06</date>
-		<solarMeter>4139</solarMeter>
-		<usageMeter>-192</usageMeter>
-		<produced/>
+		<date>2021-07-03</date>
+		<solarMeter>5728</solarMeter>
+		<usageMeter>-849</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-07</date>
-		<solarMeter>4159</solarMeter>
-		<usageMeter>-201</usageMeter>
-		<produced/>
+		<date>2021-07-04</date>
+		<solarMeter>5748</solarMeter>
+		<usageMeter>-852</usageMeter>
+		<produced>20</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-08</date>
-		<solarMeter>4180</solarMeter>
-		<usageMeter>-213</usageMeter>
-		<produced/>
+		<date>2021-07-05</date>
+		<solarMeter>5767</solarMeter>
+		<usageMeter>-853</usageMeter>
+		<produced>19</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-09</date>
-		<solarMeter>4200</solarMeter>
-		<usageMeter>-223</usageMeter>
-		<produced/>
+		<date>2021-07-06</date>
+		<solarMeter>5786</solarMeter>
+		<usageMeter>-856</usageMeter>
+		<produced>19</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-10</date>
-		<solarMeter>4221</solarMeter>
-		<usageMeter>-233</usageMeter>
-		<produced/>
+		<date>2021-07-07</date>
+		<solarMeter>5804</solarMeter>
+		<usageMeter>-864</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-11</date>
-		<solarMeter>4241</solarMeter>
-		<usageMeter>-242</usageMeter>
-		<produced/>
+		<date>2021-07-08</date>
+		<solarMeter>5820</solarMeter>
+		<usageMeter>-870</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-12</date>
-		<solarMeter>4261</solarMeter>
-		<usageMeter>-251</usageMeter>
-		<produced/>
+		<date>2021-07-09</date>
+		<solarMeter>5840</solarMeter>
+		<usageMeter>-879</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-13</date>
-		<solarMeter>4278</solarMeter>
-		<usageMeter>-259</usageMeter>
-		<produced/>
+		<date>2021-07-10</date>
+		<solarMeter>5857</solarMeter>
+		<usageMeter>-880</usageMeter>
+		<produced>17</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-14</date>
-		<solarMeter>4296</solarMeter>
-		<usageMeter>-265</usageMeter>
-		<produced/>
+		<date>2021-07-11</date>
+		<solarMeter>5876</solarMeter>
+		<usageMeter>-883</usageMeter>
+		<produced>19</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-15</date>
-		<solarMeter>4316</solarMeter>
-		<usageMeter>-278</usageMeter>
-		<produced/>
+		<date>2021-07-12</date>
+		<solarMeter>5892</solarMeter>
+		<usageMeter>-883</usageMeter>
+		<produced>16</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-16</date>
-		<solarMeter>4333</solarMeter>
-		<usageMeter>-287</usageMeter>
-		<produced/>
+		<date>2021-07-13</date>
+		<solarMeter>5910</solarMeter>
+		<usageMeter>-888</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-17</date>
-		<solarMeter>4353</solarMeter>
-		<usageMeter>-298</usageMeter>
-		<produced/>
+		<date>2021-07-14</date>
+		<solarMeter>5928</solarMeter>
+		<usageMeter>-892</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-18</date>
-		<solarMeter>4366</solarMeter>
-		<usageMeter>-297</usageMeter>
-		<produced/>
+		<date>2021-07-15</date>
+		<solarMeter>5944</solarMeter>
+		<usageMeter>-888</usageMeter>
+		<produced>16</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-19</date>
-		<solarMeter>4379</solarMeter>
-		<usageMeter>-300</usageMeter>
-		<produced/>
+		<date>2021-07-16</date>
+		<solarMeter>5964</solarMeter>
+		<usageMeter>-896</usageMeter>
+		<produced>20</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-20</date>
-		<solarMeter>4400</solarMeter>
-		<usageMeter>-313</usageMeter>
-		<produced/>
+		<date>2021-07-17</date>
+		<solarMeter>5981</solarMeter>
+		<usageMeter>-899</usageMeter>
+		<produced>17</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-21</date>
-		<solarMeter>4421</solarMeter>
-		<usageMeter>-323</usageMeter>
-		<produced/>
+		<date>2021-07-18</date>
+		<solarMeter>6003</solarMeter>
+		<usageMeter>-898</usageMeter>
+		<produced>22</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-22</date>
-		<solarMeter>4439</solarMeter>
-		<usageMeter>-328</usageMeter>
-		<produced/>
+		<date>2021-07-19</date>
+		<solarMeter>6016</solarMeter>
+		<usageMeter>-899</usageMeter>
+		<produced>13</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-23</date>
-		<solarMeter>4460</solarMeter>
-		<usageMeter>-340</usageMeter>
-		<produced/>
+		<date>2021-07-20</date>
+		<solarMeter>6034</solarMeter>
+		<usageMeter>-901</usageMeter>
+		<produced>18</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-24</date>
-		<solarMeter>4474</solarMeter>
-		<usageMeter>-344</usageMeter>
-		<produced/>
+		<date>2021-07-21</date>
+		<solarMeter>6047</solarMeter>
+		<usageMeter>-899</usageMeter>
+		<produced>13</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-25</date>
-		<solarMeter>4494</solarMeter>
-		<usageMeter>-357</usageMeter>
-		<produced/>
+		<date>2021-07-22</date>
+		<solarMeter>6062</solarMeter>
+		<usageMeter>-900</usageMeter>
+		<produced>15</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-26</date>
-		<solarMeter>4516</solarMeter>
-		<usageMeter>-369</usageMeter>
-		<produced/>
+		<date>2021-07-23</date>
+		<solarMeter>6072</solarMeter>
+		<usageMeter>-900</usageMeter>
+		<produced>10</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-27</date>
-		<solarMeter>4536</solarMeter>
-		<usageMeter>-378</usageMeter>
-		<produced/>
+		<date>2021-07-24</date>
+		<solarMeter>6081</solarMeter>
+		<usageMeter>-899</usageMeter>
+		<produced>9</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-28</date>
-		<solarMeter>4553</solarMeter>
-		<usageMeter>-387</usageMeter>
-		<produced/>
+		<date>2021-07-25</date>
+		<solarMeter>6091</solarMeter>
+		<usageMeter>-895</usageMeter>
+		<produced>10</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-29</date>
-		<solarMeter>4563</solarMeter>
-		<usageMeter>-387</usageMeter>
-		<produced/>
+		<date>2021-07-26</date>
+		<solarMeter>6107</solarMeter>
+		<usageMeter>-900</usageMeter>
+		<produced>16</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-04-30</date>
-		<solarMeter>4584</solarMeter>
-		<usageMeter>-399</usageMeter>
-		<produced/>
+		<date>2021-07-27</date>
+		<solarMeter>6127</solarMeter>
+		<usageMeter>-908</usageMeter>
+		<produced>20</produced>
 		<used/>
 		<surplus/>
 	</row>
 	<row>
-		<date>2021-05-01</date>
-		<solarMeter>4606</solarMeter>
-		<usageMeter>-414</usageMeter>
-		<produced/>
+		<date>2021-07-28</date>
+		<solarMeter>6137</solarMeter>
+		<usageMeter>-908</usageMeter>
+		<produced>10</produced>
 		<used/>
 		<surplus/>
 	</row>
